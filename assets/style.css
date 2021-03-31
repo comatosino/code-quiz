@@ -1,0 +1,47 @@
+body {
+    color: springgreen;
+    background-color: black;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header h1 {
+    width: 80%;
+    text-align: center;
+
+}
+
+section {
+    text-align: center;
+}
+
+#timer-box {
+    width: 20%;
+}
+
+#high-scores-btn {
+    width: 20%;
+}
+
+#feedback-box {
+    display: none;
+    text-align: center;
+}
+
+.game-button {
+    width:100%;
+}
+
+#timer-box {
+    visibility: hidden;
+}
