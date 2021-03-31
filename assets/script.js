@@ -1,11 +1,11 @@
 // create an array of question objects
 var questionArray = [
     {
-    question: "How boopable is a pupper snoot?", 
-    answer1: "I daresay it is quite boopable", 
-    answer2: "It possesses some modicum of boopality", 
-    answer3: "I assess pupper snoots possess boopness", 
-    correctAnswer:"Indispuatably boopable"
+    question: "question1", 
+    answer1: "q1a1", 
+    answer2: "q1a2", 
+    answer3: "q1a3", 
+    correctAnswer:"q1a4"
     },
     {
     question: "question2", 
@@ -37,6 +37,8 @@ var questionArray = [
     }
 ];
 
+var highScores = [];
+
 // let's make some pointers
 var playButton = document.getElementById("play-btn");
 var gameHeading = document.getElementById("game-heading");
@@ -45,6 +47,7 @@ var gameBox = document.getElementById("game-box");
 var feedbackBox = document.getElementById("feedback-box");
 
 // game variables
+var startTime = 30;
 var gameTimer;
 var timeLeft;
 var index;
@@ -52,7 +55,7 @@ var index;
 playButton.addEventListener("click", startGame);
 
 function startGame (event) {
-    timeLeft = 100;
+    timeLeft = startTime;
     index = 0;
     playButton.style.display = "none";
     feedbackBox.style.display = "block";
@@ -64,6 +67,7 @@ function startGame (event) {
         timerBox.textContent = "Time Left: " + timeLeft;
         timerBox.style.visibility = "visible";
         if (timeLeft <= 0) {
+            timerBox.style.visibility = "hidden";
             defeat();
         }
         timeLeft--;
@@ -121,6 +125,14 @@ function checkAnswer (event) {
     }
 }
 
+// function gameEnd () {
+//     clearInterval(gameTimer);
+//     clearGameBox();
+//     playButton.style.display = "block";
+//     gameHeading.style.display = "block";
+//     feedbackBox.textContent = "Play Again?";
+// }
+
 // you win :)
 function victory () {
     clearInterval(gameTimer);
@@ -141,16 +153,6 @@ function defeat () {
     feedbackBox.textContent = "Play Again?";
 }
 
-// function addHighScore {
-
-// }
-
-// function viewhighScores {
-
-// }
-
-
-
 // clears all elements from the game-box
 function clearGameBox () {
     while (gameBox.hasChildNodes()) {
@@ -158,3 +160,17 @@ function clearGameBox () {
     }
 }
 
+// var saveScoreButton = document.getElementById("save-btn");
+// var clearScoresButton = document.getElementById("clear-btn");
+// var input = document.getElementById("initials");
+
+// save score
+// saveScoreButton.addEventListener("click", function(event) {
+//     event.preventDefault();
+//     console.log(input.textContent);
+// });
+
+// clearScoresButton.addEventListener("click", function(event) {
+//     event.preventDefault();
+
+// });
