@@ -57,7 +57,9 @@ var gameTimer;
 var timeLeft = startTime;
 var index;
 
-// plays the game
+writeHighScores();
+
+// PLAY
 playBtn.addEventListener("click", function (event) {
     timeLeft = startTime;
     index = 0;
@@ -87,7 +89,7 @@ playBtn.addEventListener("click", function (event) {
     }, 1000)
 });
 
-// collects initials and time left, creates a score object, and saves it to local storage
+// SAVE
 saveBtn.addEventListener("click", function(event) {
     event.preventDefault(); //suppress form behavior
 
@@ -105,19 +107,19 @@ saveBtn.addEventListener("click", function(event) {
     localStorage.setItem("codeQuizHighScores", JSON.stringify(highScores));
 });
 
-// deletes high scores from local storage
+// CLEAR HIGH SCORES
 clearBtn.addEventListener("click", function (event) {
     highScores = [];
-    localStorage.removeItem("codeQuizHighScores");
+    localStorage.removeItem("codeQuizHighScores"); 
     writeHighScores();
 });
 
-// displays high scores card
+// HIGH SCORES
 scoresBtn.addEventListener("click", function (event) {
     console.log("High Scores button clicked");
 });
 
-// back to start card
+// GO BACK
 backBtn.addEventListener("click", function () {
     console.log("Back button clicked");
 });
@@ -126,27 +128,46 @@ backBtn.addEventListener("click", function () {
 function writeHighScores () {
     clearScoreTable();
 
-    const scoreRow = document.createElement("tr");  // create a <tr>
+    // if no high scores to display, print message
+    if (highScores.length == 0) {
 
-    const initHead = document.createElement("th");  // create a <th>
-    initHead.textContent = "Initials";              // add "Initials" to <th>
-    scoreRow.append(initHead);                      // append to <tr>
+        let tableRow = document.createElement("tr");         // create a <tr>
+        let tableHead = document.createElement("th");        // create a <th>
 
-    const scoreHead = document.createElement("th"); // create a <th>
-    scoreHead.textContent = "Score";                // add "score" to <th>
-    scoreRow.append(scoreHead);                     // append to <tr>
+        tableHead.textContent = "No high scores to display"; // add text to <th>
 
-    scoreTable.append(scoreRow);                    // append to table
+        tableRow.append(tableHead);                          // append <th> to <tr>
+        scoreTable.append(tableRow);                         // append <tr> to <table>
 
-    // loop over high scores array
-    // for each element in array
-        // 
+    } else {
+        let topRow = document.createElement("tr");           // create a <tr>
 
+        let initHead = document.createElement("th");         // create a <th>
+        initHead.textContent = "Initials";                   // add "Initials" to <th>
+        topRow.append(initHead);                             // append to <tr>
+        
+        let scoreHead = document.createElement("th");        // create a <th>
+        scoreHead.textContent = "Score";                     // add "Score" to <th>
+        topRow.append(scoreHead);                            // append to <tr>
+    
+        scoreTable.append(topRow);                           // append <tr> to <table>
 
+        // loop over high scores array
+        for (let i = 0; i < highScores.length; i++) {
+            let currentRow = document.createElement("tr");   // create a <tr>
 
+            let initDeet = document.createElement("td");     // create a <td>
+            initDeet.textContent = highScores[i].initials;   // add initials to <td>
+            currentRow.append(initDeet);                     // append to <tr>
+    
+            let scoreDeet = document.createElement("td");    // create a <td>
+            scoreDeet.textContent = highScores[i].score;     // add score to <td>
+            currentRow.append(scoreDeet);                    // append to <tr>
+
+            scoreTable.append(currentRow);                   // append <tr> to <table>
+        }
+    }
 }
-
-
 
 // retrieves high scores from local storage
 // returns an empty array if local storage doesn't exist
@@ -168,6 +189,8 @@ function writeQuestion (index) {
     clearGameBox();
 
     // convert question object into an array for easier looping
+    // answers[0] -> question text
+    // answers[n] -> nth answer text
     var answers = Object.values(questionArray[index]);
 
     // create a header for the question
@@ -175,8 +198,7 @@ function writeQuestion (index) {
     questionHeading.textContent = answers[0];
     gameBox.append(questionHeading);
     
-
-    // generate answers
+    // generate buttons for answers
     for (i = 1; i < answers.length; i++) {
         var answerEl = document.createElement("button");
 
@@ -209,15 +231,6 @@ function checkAnswer (event) {
         feedbackBox.textContent = "Incorrect. You have lost 10 seconds";
     }
 }
-
-// TODO: factor out common game end code
-// function gameEnd () {
-//     clearInterval(gameTimer);
-//     clearGameBox();
-//     playButton.style.display = "block";
-//     gameHeading.style.display = "block";
-//     feedbackBox.textContent = "Play Again?";
-// }
 
 // you win :)
 function victory () {
