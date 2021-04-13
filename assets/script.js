@@ -37,8 +37,6 @@ var questionArray = [
     }
 ];
 
-var highScores = [];
-
 // let's make some pointers
 var playButton = document.getElementById("play-btn");
 var gameHeading = document.getElementById("game-heading");
@@ -50,14 +48,35 @@ var feedbackBox = document.getElementById("feedback-box");
 var highScores = getLocalHighScores(); // retrieve high scores from local memory
 var startTime = 100;
 var gameTimer;
-var timeLeft;
+var timeLeft = startTime;
 var index;
 
+var saveButton = document.getElementById("save-btn");
+var initials = document.getElementById("initials-input");
 
+// collects initials and time left, creates a score object, and saves it to local storage
+saveButton.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    console.log("save button clicked");
+
+    // make a high score object
+    var newHighScore = {
+        initials : document.getElementById("initials-input").value,     // grab the initials
+        score : timeLeft
+    };
+
+    console.log(newHighScore);
+
+    // save new high score to array
+    highScores.push(newHighScore);
+
+    // save high score array to localStorage
+    localStorage.setItem("codeQuizHighScores", JSON.stringify(highScores));
+})
 
 
 // retrieves high scores from local storage
-// returns an array of objects {name: score}
 // returns an empty array if local storage doesn't exist
 function getLocalHighScores () {
 
@@ -180,18 +199,3 @@ function clearGameBox () {
         gameBox.removeChild(gameBox.firstChild);
     }
 }
-
-// var saveScoreButton = document.getElementById("save-btn");
-// var clearScoresButton = document.getElementById("clear-btn");
-// var input = document.getElementById("initials");
-
-// save score
-// saveScoreButton.addEventListener("click", function(event) {
-//     event.preventDefault();
-//     console.log(input.textContent);
-// });
-
-// clearScoresButton.addEventListener("click", function(event) {
-//     event.preventDefault();
-
-// });
