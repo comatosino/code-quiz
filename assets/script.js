@@ -47,10 +47,28 @@ var gameBox = document.getElementById("game-box");
 var feedbackBox = document.getElementById("feedback-box");
 
 // game variables
-var startTime = 30;
+var highScores = getLocalHighScores(); // retrieve high scores from local memory
+var startTime = 100;
 var gameTimer;
 var timeLeft;
 var index;
+
+
+
+
+// retrieves high scores from local storage
+// returns an array of objects {name: score}
+// returns an empty array if local storage doesn't exist
+function getLocalHighScores () {
+
+var localHighScores = JSON.parse(localStorage.getItem("codeQuizHighScores"));
+    
+    if (localHighScores) {
+        return localHighScores;
+    } else {
+        return [];
+    }
+}
 
 playButton.addEventListener("click", startGame);
 
@@ -125,6 +143,7 @@ function checkAnswer (event) {
     }
 }
 
+// TODO: factor out common game end code
 // function gameEnd () {
 //     clearInterval(gameTimer);
 //     clearGameBox();
@@ -141,6 +160,8 @@ function victory () {
     gameHeading.textContent = "You Win!";
     gameHeading.style.display = "block";
     feedbackBox.textContent = "Play Again?";
+
+    // show high scores box
 }
 
 // you lose :(
