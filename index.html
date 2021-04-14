@@ -5,50 +5,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--TODO: link reset.css -->
+    <link rel="stylesheet" href="./assets/reset.css">
     <link rel="stylesheet" href="./assets/style.css">
-    <title>Document</title>
+    <title>Code Quiz</title>
 </head>
 
 <body>
-<header>
-    <button id="high-scores-btn">
+
+<header class="header-style">
+    <button id="scores-btn">
         High Scores
     </button>
     <h1>
         Code Quiz Game
     </h1>
-    <section id="timer-box">
-        timerbox
-    </section>
+    <!-- time remaining written here -->
+    <section id="timer-box"></section>
 </header>
 
 <main>
-    <!-- <h1 id="game-heading">
-        Click "Play" to start!
-    </h1>
-    <button id="play-btn">
-        Play
-    </button> -->
 
-<!-- game content will be written here -->
-    <section id ="game-box">
-
+    <!-- start card -->
+    <section id="lobby-box" class="content-card">
+        <section class="header-style">
+            <h2 id="lobby-prompt">
+                Welcome to Code Quiz!
+            </h2>
+        </section>
+        <h3 id="game-heading">
+            Click "Play" to start!
+        </h3>
+        <button id="play-btn">
+            Play
+        </button>
     </section>
 
-    <!-- high score box -->
-    <section id ="high-score-box">
+    <!-- game card -->
+    <section id="main-box" class="content-card">
+        <section class="header-style">
+            <h2 id="question-index">
+                Question #
+            </h2>
+        </section>
+
+        <!-- question and answers apppended here -->
+        <section id="game-box"></section>
+
+        <section>
+            <h2 id="feedback-box">
+                feedback
+            </h2>
+        </section>
+    </section>
+
+    <!-- view scores card -->
+    <section id="high-scores-box" class="content-card">
+        <section class="header-style">
+            <h2>
+                High Scores
+            </h2>
+        </section>
+
+        <button id="back-btn">Go Back</button>
+        <button id="clear-btn">Clear High Scores</button>
+        
+        <!-- saved scores appended here -->
+        <table id="high-scores-table"></table>
+    </section>
+
+    <!-- victory card -->
+    <section id="win-box" class="content-card">
+        <section class="header-style">
+            <h2>
+                You Won!
+            </h2>
+        </section>
+        <h3>
+            Save your score!
+        </h3>
+        <p id="final-score">
+            Your Score:
+        </p>
         <form id="high-scores-form">
-          <input type="text" placeholder="Your initials here..." id="initials-input" />
-          <button id="save-btn">Save</button>
-          <button id="clear-btn">Clear High Scores</button>
+            <input id="initials-input" type="text" placeholder="Your initials here..."/>
+            <button id="save-btn">Save</button>
         </form>
     </section>
+
 </main>
 
-<footer>
+<footer id="feedback-foot" class="header-style">
     <h2 id="feedback-box">
-        feedback
+        Footer Text
     </h2>
 </footer>
 
