@@ -1,106 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Code Quiz</title>
-</head>
-
-<body>
-
-<header class="header-style">
-    <button id="scores-btn">
-        High Scores
-    </button>
-    <h1>
-        Code Quiz Game
-    </h1>
-    <!-- time remaining written here -->
-    <section id="timer-box"></section>
-</header>
-
-<main>
-
-    <!-- start card -->
-    <section id="lobby-box" class="content-card">
-        <section class="header-style">
-            <h2 id="lobby-prompt">
-                Welcome to Code Quiz!
-            </h2>
-        </section>
-        <h3 id="game-heading">
-            Click "Play" to start!
-        </h3>
-        <button id="play-btn">
-            Play
-        </button>
-    </section>
-
-    <!-- game card -->
-    <section id="main-box" class="content-card">
-        <section class="header-style">
-            <h2 id="question-index">
-                Question #
-            </h2>
-        </section>
-
-        <!-- question and answers apppended here -->
-        <section id="game-box"></section>
-
-        <section>
-            <h2 id="feedback-box">
-                feedback
-            </h2>
-        </section>
-    </section>
-
-    <!-- view scores card -->
-    <section id="high-scores-box" class="content-card">
-        <section class="header-style">
-            <h2>
-                High Scores
-            </h2>
-        </section>
-
-        <button id="back-btn">Go Back</button>
-        <button id="clear-btn">Clear High Scores</button>
-        
-        <!-- saved scores appended here -->
-        <table id="high-scores-table"></table>
-    </section>
-
-    <!-- victory card -->
-    <section id="win-box" class="content-card">
-        <section class="header-style">
-            <h2>
-                You Won!
-            </h2>
-        </section>
-        <h3>
-            Save your score!
-        </h3>
-        <p id="final-score">
-            Your Score:
-        </p>
-        <form id="high-scores-form">
-            <input id="initials-input" type="text" placeholder="Your initials here..."/>
-            <button id="save-btn">Save</button>
-        </form>
-    </section>
-
-</main>
-
-<footer id="feedback-foot" class="header-style">
-    <h2 id="feedback-box">
-        Footer Text
-    </h2>
-</footer>
-
-<script src="./assets/js/script.js"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
