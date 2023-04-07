@@ -1,6 +1,6 @@
-export enum Page {
+export enum PAGE {
   HOME,
-  GAME,
+  QUIZ,
   SCORES,
 }
 
