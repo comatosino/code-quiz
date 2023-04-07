@@ -1,11 +1,12 @@
-import { Center, Text } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
+import { ColorModeToggle } from "../ColorModeToggle";
 
 export const Header: React.FC = (): JSX.Element => {
   return (
     <header>
-      <Center w="full" h="10vh">
-        <Text>Header</Text>
-      </Center>
+      <Flex w="full" h="10vh" px={5} alignItems="center">
+        <ColorModeToggle size="lg" />
+      </Flex>
     </header>
   );
 };
