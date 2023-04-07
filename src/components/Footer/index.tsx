@@ -4,7 +4,7 @@ export const Footer: React.FC = (): JSX.Element => {
   return (
     <footer>
       <Center w="full" h="10vh">
-        <Text>Footer</Text>
+        {/* <Text>Footer</Text> */}
       </Center>
     </footer>
   );
