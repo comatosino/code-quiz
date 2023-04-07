@@ -12,15 +12,16 @@ const { definePartsStyle, defineMultiStyleConfig } = createMultiStyleConfigHelpe
 // if checked, dark mode enabled
 const colorMode = definePartsStyle({
   thumb: {
-    bgColor: "black",
-    maskImage: `url('${moon}')`,
-    WebkitMaskImage: `url('${moon}')`,
+    bgColor: "goldenrod",
+    maskImage: `url('${sun}')`,
+    WebkitMaskImage: `url('${sun}')`,
     maskPosition: "center",
     maskRepeat: "no-repeat",
     maskSize: "cover",
     _checked: {
-      maskImage: `url('${sun}')`,
-      WebkitMaskImage: `url('${sun}')`,
+      maskImage: `url('${moon}')`,
+      WebkitMaskImage: `url('${moon}')`,
+      transform: `translateX(var(--switch-thumb-x)) scaleX(${-1})`,
     },
     _dark: {
       bgColor: `white`,
