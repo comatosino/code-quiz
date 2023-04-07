@@ -12,7 +12,7 @@ export const useLocalStorage = <T>(key: string, defaultValue: T): [T, React.Disp
 
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(value));
-  }, [key, value]);
+  }, [value]);
 
   return [value, setValue];
 };
