@@ -1,3 +1,3 @@
 export { Home } from "./Home";
-export { Game } from "./Game";
+export { Quiz } from "./Quiz";
 export { Scores } from "./Scores";
