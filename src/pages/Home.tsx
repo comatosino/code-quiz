@@ -1,22 +1,34 @@
-import { Heading, Stack, Button } from "@chakra-ui/react";
+import { Stack, Flex, Heading, Button } from "@chakra-ui/react";
+import { PAGE } from "../@types";
+import { useNavigate } from "../hooks/useNavigate";
 
-import { Page } from "../@types";
+export const Home: React.FC = (): JSX.Element => {
+  const { setPage } = useNavigate();
 
-interface IHomeProps {
-  setPage: React.Dispatch<React.SetStateAction<Page>>;
-}
-
-export const Home: React.FC<IHomeProps> = ({ setPage }): JSX.Element => {
   return (
-    <>
-      <Heading as="h1" size="4xl" mb={10}>
-        Quiz Game
-      </Heading>
+    <Stack id="home" w="full" h="full">
+      <Flex h={100} mx={5} alignItems="center">
+        <Heading as="h1" size="4xl">
+          Quiz Game
+        </Heading>
+      </Flex>
 
-      <Stack spacing={5}>
-        <Button onClick={() => setPage(Page.GAME)}>Start</Button>
-        <Button onClick={() => setPage(Page.SCORES)}>View High Scores</Button>
+      <Stack spacing={5} w="50%" flexGrow={1} alignSelf="center" justifyContent="center">
+        <Button
+          onClick={() => {
+            setPage(PAGE.QUIZ);
+          }}
+        >
+          Start
+        </Button>
+        <Button
+          onClick={() => {
+            setPage(PAGE.SCORES);
+          }}
+        >
+          View High Scores
+        </Button>
       </Stack>
-    </>
+    </Stack>
   );
 };
