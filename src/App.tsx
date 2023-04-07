@@ -1,30 +1,28 @@
-import { useState } from "react";
+import { Provider } from "react-redux";
 
-import { Page } from "./@types";
-import { Home, Game, Scores } from "./pages";
+import { store } from "./store";
 import { DefaultLayout } from "./layouts";
+import { Home, Quiz, Scores } from "./pages";
+import { useNavigate } from "./hooks/useNavigate";
+import { PAGE } from "./@types";
+
+const PAGE_MAP = {
+  [PAGE.HOME]: <Home />,
+  [PAGE.QUIZ]: <Quiz />,
+  [PAGE.SCORES]: <Scores />,
+};
 
 export const App: React.FC = (): JSX.Element => {
-  const [page, setPage] = useState(Page.HOME);
+  return (
+    <Provider store={store}>
+      <DefaultLayout>
+        <Main />
+      </DefaultLayout>
+    </Provider>
+  );
+};
 
-  switch (page) {
-    default:
-      return (
-        <DefaultLayout>
-          <Home setPage={setPage} />
-        </DefaultLayout>
-      );
-    case Page.GAME:
-      return (
-        <DefaultLayout>
-          <Game />
-        </DefaultLayout>
-      );
-    case Page.SCORES:
-      return (
-        <DefaultLayout>
-          <Scores setPage={setPage} />
-        </DefaultLayout>
-      );
-  }
+const Main: React.FC = (): JSX.Element => {
+  const { page } = useNavigate();
+  return PAGE_MAP[page];
 };
