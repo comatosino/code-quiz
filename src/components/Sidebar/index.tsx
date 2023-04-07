@@ -1,13 +1,18 @@
-import { Center, Text } from "@chakra-ui/react";
+import { Stack, Button, Center } from "@chakra-ui/react";
+import { CONFIG } from "../../config";
+import { DebugMenu } from "../DebugMenu";
 
-interface ISidebarProps {
-  [key: string]: any;
-}
-
-export const Sidebar: React.FC<ISidebarProps> = (props): JSX.Element => {
+export const Sidebar: React.FC = (): JSX.Element => {
   return (
-    <Center>
-      <Text>Sidebar</Text>
-    </Center>
+    <Stack ml={5} flexDir="column">
+      <Center w="full" h={100}></Center>
+      <Stack spacing={5}>
+        <Button>Classic</Button>
+        <Button>Modern</Button>
+        <Button>Multiplayer</Button>
+      </Stack>
+
+      {CONFIG.USE_DEBUG_MODE && <DebugMenu />}
+    </Stack>
   );
 };
