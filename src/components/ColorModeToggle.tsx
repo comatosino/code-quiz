@@ -9,8 +9,6 @@ export const ColorModeToggle: React.FC<SwitchProps> = (props): JSX.Element => {
   const { colorMode, toggleColorMode } = useColorMode();
   const darkModeOn = colorMode === "dark";
 
-  // props.variant = "colorMode";
-
   const handleToggle: React.ChangeEventHandler<HTMLInputElement> = (_e) => {
     toggleColorMode();
 
