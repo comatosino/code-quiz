@@ -1,18 +1,19 @@
-import { Stack, Center, Heading, Button } from "@chakra-ui/react";
-import { PageHeading } from "../../components/PageHeading";
+import { Outlet } from "react-router-dom";
+import { GameOver, Home, Quiz, Scores } from "./views";
 
-export const Classic: React.FC = (): JSX.Element => {
-  document.title = "Quiz Game - Classic";
-  return (
-    <>
-      <PageHeading>Classic</PageHeading>
-
-      <Center flexGrow={1}>
-        <Stack spacing={5}>
-          <Button>Start</Button>
-          <Button>View High Scores</Button>
-        </Stack>
-      </Center>
-    </>
-  );
+type ClassicMode = React.FC & {
+  Home: typeof Home;
+  Quiz: typeof Quiz;
+  GameOver: typeof GameOver;
+  Scores: typeof Scores;
 };
+
+export const Classic: ClassicMode = (): JSX.Element => {
+  document.title = "Quiz Game - Classic";
+  return <Outlet />;
+};
+
+Classic.Home = Home;
+Classic.Quiz = Quiz;
+Classic.GameOver = GameOver;
+Classic.Scores = Scores;

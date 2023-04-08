@@ -14,3 +14,8 @@ export type CheckAnswerHandler = (
   choice: string,
   answer: string,
 ) => React.MouseEventHandler<HTMLButtonElement>;
+
+export interface IHighScore {
+  initials: string;
+  score: number;
+}

@@ -8,7 +8,12 @@ export const AppRouter: React.FC = (): JSX.Element => {
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
         <Route index element={<Home />} />
-        <Route path="classic" element={<Classic />} />
+        <Route path="classic" element={<Classic />}>
+          <Route index element={<Classic.Home />} />
+          <Route path="quiz" element={<Classic.Quiz />} />
+          <Route path="gameover" element={<Classic.GameOver />} />
+          <Route path="scores" element={<Classic.Scores />} />
+        </Route>
         <Route path="modern" element={<Modern />} />
         <Route path="multiplayer" element={<Multiplayer />} />
         <Route path="settings" element={<Settings />} />

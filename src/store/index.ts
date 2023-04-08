@@ -1,7 +1,7 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 
-import { pageSlice } from "./page";
+import { classicSlice } from "./classic";
 
 export type RootState = ReturnType<typeof store.getState>;
 
@@ -20,6 +20,6 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 export const store = configureStore({
   // rtk creates root reducer automatically
   reducer: {
-    page: pageSlice.reducer,
+    classic: classicSlice.reducer,
   },
 });
