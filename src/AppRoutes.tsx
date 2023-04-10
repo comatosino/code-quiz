@@ -1,21 +1,19 @@
 import { Routes, Route } from "react-router-dom";
 
+import { Home, Legacy, Settings, _404 } from "./routes";
 import { DefaultLayout } from "./layouts";
-import { Home, Classic, Modern, Multiplayer, Settings, _404 } from "./routes";
 
 export const AppRouter: React.FC = (): JSX.Element => {
   return (
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
         <Route index element={<Home />} />
-        <Route path="classic" element={<Classic />}>
-          <Route index element={<Classic.Home />} />
-          <Route path="quiz" element={<Classic.Quiz />} />
-          <Route path="gameover" element={<Classic.GameOver />} />
-          <Route path="scores" element={<Classic.Scores />} />
+        <Route path="legacy" element={<Legacy />}>
+          <Route index element={<Legacy.Home />} />
+          <Route path="quiz" element={<Legacy.Quiz />} />
+          <Route path="gameover" element={<Legacy.GameOver />} />
+          <Route path="scores" element={<Legacy.Scores />} />
         </Route>
-        <Route path="modern" element={<Modern />} />
-        <Route path="multiplayer" element={<Multiplayer />} />
         <Route path="settings" element={<Settings />} />
         <Route path="*" element={<_404 />} />
       </Route>

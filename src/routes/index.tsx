@@ -2,9 +2,7 @@ import { Center, Text } from "@chakra-ui/react";
 import { QuestionOutlineIcon } from "@chakra-ui/icons";
 
 export { _404 } from "./_404";
-export { Classic } from "./Classic";
-export { Modern } from "./Modern";
-export { Multiplayer } from "./Multiplayer";
+export { Legacy } from "./Legacy";
 export { Settings } from "./Settings";
 
 export const Home: React.FC = (): JSX.Element => {
