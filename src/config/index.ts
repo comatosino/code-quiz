@@ -1,5 +1,5 @@
 export const CONFIG = {
-  ENV: "development",
-  USE_DEBUG_MODE: true,
+  LOCAL_STORAGE_KEY_CLASSIC: "quiz-classic-high-scores",
+  USE_DEBUG_MODE: false,
   USE_SIDEBAR: true,
 };

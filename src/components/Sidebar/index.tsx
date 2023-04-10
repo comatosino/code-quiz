@@ -1,33 +1,25 @@
 import { Link as RouterLink } from "react-router-dom";
-import { Stack, Center, Link, Button, Text } from "@chakra-ui/react";
+import { Flex, Stack, Center, Link, Button } from "@chakra-ui/react";
 import { QuestionOutlineIcon } from "@chakra-ui/icons";
 
 import { DebugMenu } from "../DebugMenu";
+import { ColorModeToggle } from "../ColorModeToggle";
 import { CONFIG } from "../../config";
 
 export const Sidebar: React.FC = (): JSX.Element => {
   return (
-    <Stack ml={5} my={5} flexDir="column">
-      <Center id="logo-box" w="full" h={100} mb={10} flexDirection="column">
+    <Flex pos="relative" flexDir="column" bg="whiteAlpha.100" borderRadius="xl">
+      <ColorModeToggle size="lg" pos="absolute" top={1} left={1} />
+
+      <Center id="logo-box" w="full" h={100} flexDirection="column">
         <Link as={RouterLink} to="/">
           <QuestionOutlineIcon fontSize={50} />
         </Link>
-        <Text fontSize={22} fontWeight={700}>
-          Quiz Game
-        </Text>
       </Center>
 
-      <Stack spacing={5}>
-        <Button as={RouterLink} to="/classic">
-          Classic
-        </Button>
-
-        <Button as={RouterLink} to="/modern">
-          Modern
-        </Button>
-
-        <Button as={RouterLink} to="/multiplayer">
-          Multiplayer
+      <Stack spacing={5} px={5}>
+        <Button as={RouterLink} to="/legacy">
+          Legacy
         </Button>
 
         <Button as={RouterLink} to="/settings">
@@ -36,6 +28,6 @@ export const Sidebar: React.FC = (): JSX.Element => {
       </Stack>
 
       {CONFIG.USE_DEBUG_MODE && <DebugMenu />}
-    </Stack>
+    </Flex>
   );
 };

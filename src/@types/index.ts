@@ -10,6 +10,11 @@ export interface IQuestion {
   answer: string;
 }
 
+export interface IScore {
+  initials: string;
+  score: number;
+}
+
 export type CheckAnswerHandler = (
   choice: string,
   answer: string,

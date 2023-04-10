@@ -1,13 +1,10 @@
 import { Outlet } from "react-router-dom";
-import { Stack, SimpleGrid } from "@chakra-ui/react";
-
-import { Header } from "../components/Header";
-import { Sidebar } from "../components/Sidebar";
-import { Footer } from "../components/Footer";
+import { Stack, SimpleGrid, Container, Flex } from "@chakra-ui/react";
+import { Footer, Header, Sidebar } from "../components";
 import { CONFIG } from "../config";
 
 interface LayoutProps {
-  children?: string | JSX.Element | JSX.Element[]; // | (() => JSX.Element);
+  children?: string | JSX.Element | JSX.Element[] | (() => JSX.Element);
 }
 
 export const DefaultLayout: React.FC<LayoutProps> = (): JSX.Element => {
@@ -15,7 +12,14 @@ export const DefaultLayout: React.FC<LayoutProps> = (): JSX.Element => {
     <Stack h="100vh" spacing={5}>
       <Header />
       {CONFIG.USE_SIDEBAR ? (
-        <SimpleGrid columns={2} gridTemplateColumns={`${20}% ${80}%`} flexGrow={1}>
+        <SimpleGrid
+          as={Container}
+          maxW="container.lg"
+          gridTemplateColumns={`${20}% ${80}%`}
+          columns={2}
+          flexGrow={1}
+          alignSelf="center"
+        >
           <Sidebar />
           <Main />
         </SimpleGrid>
@@ -29,8 +33,8 @@ export const DefaultLayout: React.FC<LayoutProps> = (): JSX.Element => {
 
 const Main: React.FC<LayoutProps> = (): JSX.Element => {
   return (
-    <Stack mx={5} bg="whiteAlpha.100" borderRadius="3xl">
+    <Flex flexDir="column" mx={5} bg="whiteAlpha.100" borderRadius="xl">
       <Outlet />
-    </Stack>
+    </Flex>
   );
 };
