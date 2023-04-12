@@ -13,7 +13,12 @@ export const GameOver: React.FC = (): JSX.Element => {
   return (
     <Stack id="game" w="full" h="full" justifyContent="center" alignItems="center">
       <Heading fontSize={48}>Game Over</Heading>
-      <Text fontSize={22}>Your score: {last_score}</Text>
+      <Text fontSize={22} borderRadius="md">
+        {"Your score: "}
+        <Text as="span" fontWeight="semibold" bg="whiteAlpha.200" borderRadius="md" padding={1}>
+          {last_score}
+        </Text>
+      </Text>
       <Text fontSize={22}>Add Initials?</Text>
       <InitialsForm last_game_score={last_score} />
     </Stack>

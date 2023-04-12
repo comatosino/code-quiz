@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Stack, SimpleGrid, Container, Flex } from "@chakra-ui/react";
+import { Stack, SimpleGrid, Container, Flex, useMediaQuery } from "@chakra-ui/react";
 import { Footer, Header, Sidebar } from "../components";
 import { CONFIG } from "../config";
 
@@ -8,6 +8,13 @@ interface LayoutProps {
 }
 
 export const DefaultLayout: React.FC<LayoutProps> = (): JSX.Element => {
+  const [is300px, is480px, is768px, is1024px] = useMediaQuery([
+    "(min-width: 300px)",
+    "(min-width: 480px)",
+    "(min-width: 768px)",
+    "(min-width: 1024px)",
+  ]);
+
   return (
     <Stack h="100vh" spacing={5}>
       <Header />

@@ -1,18 +1,21 @@
 import { useState } from "react";
+import { useToast } from "@chakra-ui/react";
 
-import { legacySlice, useAppDispatch } from "../../../../store";
 import { useTimer } from "../useTimer";
+import { legacySlice, useAppDispatch } from "../../../../store";
+import { correct, incorrect } from "./feedback";
 
 import questions from "./questions.json";
 
 const { actions } = legacySlice;
 
 export const useQuiz = () => {
-  const timer = useTimer();
   const dispatch = useAppDispatch();
+  const timer = useTimer();
+  const toast = useToast();
 
-  const [gameStarted, setGameStarted] = useState(false);
   const [index, setIndex] = useState(0);
+  const [gameStarted, setGameStarted] = useState(false);
 
   const currQuestion = questions[index];
 
@@ -31,8 +34,10 @@ export const useQuiz = () => {
 
   const checkAnswer = (choice: string, answer: string) => {
     if (choice === answer) {
+      toast(correct);
       nextQuestion();
     } else {
+      toast(incorrect);
       timer.decrement(10);
     }
   };
@@ -57,12 +62,12 @@ export const useQuiz = () => {
   return {
     start,
     stop,
+    reset,
     nextQuestion,
     currQuestion,
     checkAnswer,
     setLastGameScore,
     isGameOver,
     timeRemaining: timer.time,
-    reset,
   };
 };

@@ -9,8 +9,6 @@ import { CONFIG } from "../../config";
 export const Sidebar: React.FC = (): JSX.Element => {
   return (
     <Flex pos="relative" flexDir="column" bg="whiteAlpha.100" borderRadius="xl">
-      <ColorModeToggle size="lg" pos="absolute" top={1} left={1} />
-
       <Center id="logo-box" w="full" h={100} flexDirection="column">
         <Link as={RouterLink} to="/">
           <QuestionOutlineIcon fontSize={50} />

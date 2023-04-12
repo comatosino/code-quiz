@@ -10,7 +10,9 @@ export const Home: React.FC = (): JSX.Element => {
   return (
     <Center flexGrow={1} flexDir="column">
       <QuestionOutlineIcon fontSize={128} />
-      <Text fontSize={48}>Quiz Game!</Text>
+      <Text textAlign="center" fontSize={48}>
+        Quiz Game!
+      </Text>
     </Center>
   );
 };
