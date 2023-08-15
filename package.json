@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "",
     "preview": "vite preview",
+    "lint": "yarn lint",
     "clean": "rimraf dist"
   },
   "dependencies": {
