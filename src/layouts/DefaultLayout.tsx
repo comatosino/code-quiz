@@ -16,25 +16,27 @@ export const DefaultLayout: React.FC<LayoutProps> = (): JSX.Element => {
   ]);
 
   return (
-    <Stack h="100vh" spacing={5}>
-      <Header />
-      {CONFIG.USE_SIDEBAR ? (
-        <SimpleGrid
-          as={Container}
-          maxW="container.lg"
-          gridTemplateColumns={`${20}% ${80}%`}
-          columns={2}
-          flexGrow={1}
-          alignSelf="center"
-        >
-          <Sidebar />
+    <Container maxW="container.xl">
+      <Stack h="100vh" spacing={5}>
+        <Header />
+        {CONFIG.USE_SIDEBAR ? (
+          <SimpleGrid
+            as={Container}
+            maxW="container.lg"
+            gridTemplateColumns={`${20}% ${80}%`}
+            columns={2}
+            flexGrow={1}
+            alignSelf="center"
+          >
+            <Sidebar />
+            <Main />
+          </SimpleGrid>
+        ) : (
           <Main />
-        </SimpleGrid>
-      ) : (
-        <Main />
-      )}
-      <Footer />
-    </Stack>
+        )}
+        <Footer />
+      </Stack>
+    </Container>
   );
 };
 

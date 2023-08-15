@@ -1,5 +1,4 @@
 {
-  "homepage": "r0b4dams.github.io/code-quiz/",
   "name": "code-quiz",
   "private": true,
   "version": "1.0.0",
@@ -8,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "yarn lint",
+    "lint": "eslint",
     "clean": "rimraf dist"
   },
   "dependencies": {
