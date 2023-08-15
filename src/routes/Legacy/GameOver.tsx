@@ -6,9 +6,11 @@ import { Navigate } from "react-router-dom";
 export const GameOver: React.FC = (): JSX.Element => {
   const { last_score } = useGetLastScore();
 
-  if (last_score === undefined) {
+  if (last_score === null || last_score === undefined) {
     return <Navigate to="/legacy" replace />;
   }
+
+  document.title = "Quizality | Game Over";
 
   return (
     <Stack id="game" w="full" h="full" justifyContent="center" alignItems="center">

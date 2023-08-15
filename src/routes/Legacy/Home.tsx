@@ -3,7 +3,7 @@ import { Center, Stack, Button } from "@chakra-ui/react";
 import { PageHeading } from "../../components/PageHeading";
 
 export const Home: React.FC = (): JSX.Element => {
-  document.title = "Quiz Game - Legacy";
+  document.title = "Quizality | Legacy";
 
   return (
     <>

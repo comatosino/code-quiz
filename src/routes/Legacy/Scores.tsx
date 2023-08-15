@@ -16,6 +16,8 @@ import { useHighScores } from "./hooks";
 export const Scores: React.FC = (): JSX.Element => {
   const { high_scores, clearHighScores } = useHighScores();
 
+  document.title = "Quizality | Legacy high scores";
+
   return (
     <>
       <PageHeading>High Scores - Legacy</PageHeading>

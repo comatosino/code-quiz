@@ -24,6 +24,9 @@ export const Quiz: React.FC = (): JSX.Element => {
   if (!quiz.currQuestion) {
     throw new Error("error loading question");
   }
+
+  document.title = "Quizality | Legacy quiz";
+
   const { prompt, choices, answer } = quiz.currQuestion;
 
   return (
