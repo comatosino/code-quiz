@@ -23,12 +23,12 @@ export const InitialsForm: React.FC<IFormProps> = ({ last_game_score }): JSX.Ele
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    if (!last_game_score) {
+    if (last_game_score === undefined || null) {
       throw new Error("error: score not found");
     }
     saveHighScore({
       initials: Object.values(initials).join(""),
-      score: last_game_score,
+      score: last_game_score as number,
     });
     resetLastScore();
     navigate("/legacy/scores", { replace: true });
@@ -45,7 +45,7 @@ export const InitialsForm: React.FC<IFormProps> = ({ last_game_score }): JSX.Ele
     }
   };
 
-  if (!last_game_score) {
+  if (last_game_score === null || last_game_score === undefined) {
     navigate("/legacy", { replace: true });
   }
 

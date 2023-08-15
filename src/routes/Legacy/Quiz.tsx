@@ -4,7 +4,7 @@ import { Stack, HStack, Text, Button } from "@chakra-ui/react";
 
 import { useQuiz } from "./hooks";
 
-const START_TIME = 999;
+const START_TIME = 60;
 
 export const Quiz: React.FC = (): JSX.Element => {
   const quiz = useQuiz();
