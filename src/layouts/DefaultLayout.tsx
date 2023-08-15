@@ -22,11 +22,11 @@ export const DefaultLayout: React.FC<LayoutProps> = (): JSX.Element => {
         {CONFIG.USE_SIDEBAR ? (
           <SimpleGrid
             as={Container}
-            maxW="container.lg"
             gridTemplateColumns={`${20}% ${80}%`}
             columns={2}
             flexGrow={1}
             alignSelf="center"
+            maxW="100%"
           >
             <Sidebar />
             <Main />

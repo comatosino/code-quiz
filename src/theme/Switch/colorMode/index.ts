@@ -9,7 +9,6 @@ const { definePartsStyle, defineMultiStyleConfig } = createMultiStyleConfigHelpe
 );
 
 // custom variant for the chakra Switch component
-// if checked, dark mode enabled
 const colorMode = definePartsStyle({
   thumb: {
     bgColor: "goldenrod",
@@ -18,13 +17,13 @@ const colorMode = definePartsStyle({
     maskPosition: "center",
     maskRepeat: "no-repeat",
     maskSize: "cover",
+
+    // if checked, dark mode enabled
+    _dark: { bgColor: `whiteAlpha.800` },
     _checked: {
       maskImage: `url('${moon}')`,
       WebkitMaskImage: `url('${moon}')`,
       transform: `translateX(var(--switch-thumb-x)) scaleX(${-1})`,
-    },
-    _dark: {
-      bgColor: `white`,
     },
   },
   track: {
