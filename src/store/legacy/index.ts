@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 import { high_scores } from "./high_scores";
-import { IScore } from "../../@types";
 
 interface LegacyState {
   high_scores: IScore[];

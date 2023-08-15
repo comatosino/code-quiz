@@ -1,5 +1,4 @@
 import { legacySlice, useAppDispatch, useAppSelector } from "../../../store";
-import { IScore } from "../../../@types";
 
 const { actions } = legacySlice;
 

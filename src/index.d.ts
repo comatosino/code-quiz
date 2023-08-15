@@ -1,21 +1,21 @@
-export enum PAGE {
+enum PAGE {
   HOME,
   QUIZ,
   SCORES,
 }
 
-export interface IQuestion {
+interface IQuestion {
   prompt: string;
   choices: string[];
   answer: string;
 }
 
-export interface IScore {
+interface IScore {
   initials: string;
   score: number;
 }
 
-export type CheckAnswerHandler = (
+type CheckAnswerHandler = (
   choice: string,
   answer: string,
 ) => React.MouseEventHandler<HTMLButtonElement>;

@@ -1,5 +1,3 @@
-import { IScore } from "../../@types";
-
 const loadScores = () => {
   const json = localStorage.getItem("quiz-classic-high-scores");
   let scores = [];
