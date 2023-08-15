@@ -10,7 +10,7 @@ export const GameOver: React.FC = (): JSX.Element => {
     return <Navigate to="/legacy" replace />;
   }
 
-  document.title = "Quizality | Game Over";
+  document.title = "Quizality | Legacy | Game Over";
 
   return (
     <Stack id="game" w="full" h="full" justifyContent="center" alignItems="center">
