@@ -1,25 +1,25 @@
 import { Link as RouterLink } from "react-router-dom";
-import { Center, Stack, Button } from "@chakra-ui/react";
-import { PageHeading } from "../../components/PageHeading";
+import { Center, Stack, Button, Heading } from "@chakra-ui/react";
 
 export const Home: React.FC = (): JSX.Element => {
   document.title = "Quizality | Legacy";
 
   return (
-    <>
-      <PageHeading>Legacy Mode</PageHeading>
-
-      <Center flexGrow={1} flexDir="column">
-        <Stack spacing={5}>
-          <Button as={RouterLink} to="/legacy/quiz">
-            Start Quiz
-          </Button>
-
-          <Button as={RouterLink} to="/legacy/scores">
-            View High Scores
+    <Center w="full" h="full">
+      <Stack spacing={5}>
+        <Heading>Legacy Mode</Heading>
+        <Button as={RouterLink} to="/legacy/quiz">
+          Start Quiz
+        </Button>
+        <Button as={RouterLink} to="/legacy/scores">
+          View High Scores
+        </Button>
+        <Stack pt={10}>
+          <Button as={RouterLink} to="/">
+            Back
           </Button>
         </Stack>
-      </Center>
-    </>
+      </Stack>
+    </Center>
   );
 };

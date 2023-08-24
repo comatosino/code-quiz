@@ -13,7 +13,7 @@ export const GameOver: React.FC = (): JSX.Element => {
   document.title = "Quizality | Legacy | Game Over";
 
   return (
-    <Stack id="game" w="full" h="full" justifyContent="center" alignItems="center">
+    <Stack id="game" w="full" h="full" justifyContent="center" alignItems="center" spacing={5}>
       <Heading fontSize={48}>Game Over</Heading>
       <Text fontSize={22} borderRadius="md">
         {"Your score: "}

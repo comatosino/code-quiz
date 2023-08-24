@@ -65,12 +65,14 @@ export const InitialsForm: React.FC<IFormProps> = ({ last_game_score }): JSX.Ele
             <PinInputField ref={inputRef} name="tres" maxLength={1} onInput={handleInput} />
           </PinInput>
         </HStack>
-        <Button ref={btnRef} type="submit" onKeyDown={handleKeyDown}>
-          Save
-        </Button>
-        <Button as={RouterLink} to="/legacy">
-          Quit
-        </Button>
+        <Stack pt={5} spacing={5}>
+          <Button ref={btnRef} type="submit" onKeyDown={handleKeyDown}>
+            Save
+          </Button>
+          <Button as={RouterLink} to="/legacy">
+            Quit
+          </Button>
+        </Stack>
       </Stack>
     </form>
   );

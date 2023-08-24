@@ -7,7 +7,9 @@ export const Footer: React.FC = (): JSX.Element => {
     <footer>
       <Center w="full" h="10vh">
         <Container maxW="container.xl" display="flex" justifyContent="center">
-          <Text>Robert Adams © {year}</Text>
+          <a>
+            <Text>Robert Adams © {year}</Text>
+          </a>
         </Container>
       </Center>
     </footer>

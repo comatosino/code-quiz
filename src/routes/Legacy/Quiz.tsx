@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import { Stack, HStack, Text, Button } from "@chakra-ui/react";
-
+import { Stack, Text, Button, Center, Divider } from "@chakra-ui/react";
 import { useQuiz } from "./hooks";
 
 const START_TIME = 60;
@@ -25,29 +24,35 @@ export const Quiz: React.FC = (): JSX.Element => {
     throw new Error("error loading question");
   }
 
-  document.title = "Quizality | Legacy | Quiz";
-
   const { prompt, choices, answer } = quiz.currQuestion;
 
+  document.title = "Quizality | Legacy | Quiz";
+
   return (
-    <Stack id="game" w="full" h="full">
-      <HStack>
-        <Text as="h2" alignSelf="flex-end" p={5} fontSize={18}>
-          time remaining: {quiz.timeRemaining}
+    <Center w="full">
+      <Stack id="game" w={640} margin="auto">
+        <Text as="h2" alignSelf="flex-end">
+          {"time remaining: "}
+          <Text as="span" fontWeight="bold">
+            {quiz.timeRemaining}
+          </Text>
         </Text>
-      </HStack>
 
-      <Text as="h3" fontSize={20} px={10}>
-        {prompt}
-      </Text>
+        <Text fontSize="xl">{prompt}</Text>
 
-      <Stack alignItems="start" spacing={10} px={12} py={10} flexGrow={1}>
-        {choices.map((choice, i) => (
-          <Button key={i} onClick={handleCheckAnswer(choice, answer)} variant="unstyled">
-            {choice}
-          </Button>
-        ))}
+        <Divider />
+
+        <Stack alignItems="start">
+          {choices.map((choice, i) => (
+            <>
+              <Button key={i} onClick={handleCheckAnswer(choice, answer)} variant="unstyled">
+                {choice}
+              </Button>
+              <Divider />
+            </>
+          ))}
+        </Stack>
       </Stack>
-    </Stack>
+    </Center>
   );
 };
