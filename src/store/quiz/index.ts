@@ -1,20 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
+interface QuizParams {
+  amount?: number;
+  category?: number;
+  difficulty?: "easy" | "meduium" | "hard";
+  type?: "multiple" | "boolean";
+}
 interface QuizState {
-  endpoint: string;
+  params: QuizParams;
 }
 
 const initialState: QuizState = {
-  endpoint: "https://opentdb.com/api.php?amount=10",
+  params: { amount: 10 },
 };
 
 export const quizSlice = createSlice({
   name: "quiz",
   initialState,
   reducers: {
-    setEndpoint: (state, action: PayloadAction<string>) => {
-      state.endpoint = action.payload;
+    setParams: (state, action: PayloadAction<QuizParams>) => {
+      state.params = action.payload;
     },
   },
 });

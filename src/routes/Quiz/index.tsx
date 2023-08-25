@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-
 import { New } from "./New";
 import { Play } from "./Play";
 import { GameOver } from "./GameOver";
@@ -10,7 +9,9 @@ type QuizMode = React.FC & {
   GameOver: typeof GameOver;
 };
 
-export const Quiz: QuizMode = () => <Outlet />;
+export const Quiz: QuizMode = () => {
+  return <Outlet />;
+};
 
 Quiz.New = New;
 Quiz.Play = Play;

@@ -1,28 +1,46 @@
 import { useEffect, useState } from "react";
+import { api } from "../../utils/api";
 
-export const Play: React.FC = () => {
-  const [questions, setQuestions] = useState<OtdbQuestion[] | null>(null);
+const useQuestions = () => {
+  const [questions, setQuestions] = useState<OtdbQuestion[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    console.log(questions);
-    if (!questions) {
-      fetchQuestions();
-    }
+    fetchQuestions();
   }, []);
 
   const fetchQuestions = async () => {
-    const response = await fetch("https://opentdb.com/api.php?amount=10"); // 10 random questions
-    const data: OtdbResponse = await response.json();
-    setQuestions(data.results);
+    try {
+      setLoading(true);
+      const response = await api.questions.default();
+      setQuestions(response.data.results);
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error);
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
-  if (!questions) {
-    return <div>...fetching questions</div>;
+  return { questions, loading, error };
+};
+
+export const Play: React.FC = () => {
+  const { questions, loading, error } = useQuestions();
+
+  if (error) {
+    return <div>{error.message}</div>;
+  }
+
+  if (loading) {
+    return <div>...loading questions</div>;
   }
 
   return (
     <div>
-      {questions.map((q, i) => (
+      {questions?.map((q, i) => (
         <p key={i}>{q.question}</p>
       ))}
     </div>
