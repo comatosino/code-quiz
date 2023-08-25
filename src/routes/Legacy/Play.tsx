@@ -5,7 +5,7 @@ import { useQuiz } from "./hooks";
 
 const START_TIME = 60;
 
-export const Quiz: React.FC = (): JSX.Element => {
+export const Play: React.FC = (): JSX.Element => {
   const quiz = useQuiz();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export const Quiz: React.FC = (): JSX.Element => {
   };
 
   if (quiz.isGameOver) {
-    return <Navigate to="/legacy/gameover" replace />;
+    return <Navigate to="/quiz-legacy/gameover" replace />;
   }
 
   if (!quiz.currQuestion) {

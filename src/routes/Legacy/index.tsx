@@ -1,20 +1,20 @@
 import { Outlet } from "react-router-dom";
 
-import { Home } from "./Home";
-import { Quiz } from "./Quiz";
+import { New } from "./New";
+import { Play } from "./Play";
 import { Scores } from "./Scores";
 import { GameOver } from "./GameOver";
 
 type LegacyMode = React.FC & {
-  Home: typeof Home;
-  Quiz: typeof Quiz;
+  New: typeof New;
+  Play: typeof Play;
   Scores: typeof Scores;
   GameOver: typeof GameOver;
 };
 
 export const Legacy: LegacyMode = () => <Outlet />;
 
-Legacy.Home = Home;
-Legacy.Quiz = Quiz;
+Legacy.New = New;
+Legacy.Play = Play;
 Legacy.GameOver = GameOver;
 Legacy.Scores = Scores;

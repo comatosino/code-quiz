@@ -7,7 +7,7 @@ export const GameOver: React.FC = (): JSX.Element => {
   const { last_score } = useGetLastScore();
 
   if (last_score === null || last_score === undefined) {
-    return <Navigate to="/legacy" replace />;
+    return <Navigate to="/quiz-legacy" replace />;
   }
 
   document.title = "Quizality | Legacy | Game Over";

@@ -31,7 +31,7 @@ export const InitialsForm: React.FC<IFormProps> = ({ last_game_score }): JSX.Ele
       score: last_game_score as number,
     });
     resetLastScore();
-    navigate("/legacy/scores", { replace: true });
+    navigate("/quiz-legacy/scores", { replace: true });
   };
 
   const handleComplete = () => {
@@ -46,7 +46,7 @@ export const InitialsForm: React.FC<IFormProps> = ({ last_game_score }): JSX.Ele
   };
 
   if (last_game_score === null || last_game_score === undefined) {
-    navigate("/legacy", { replace: true });
+    navigate("/quiz-legacy", { replace: true });
   }
 
   return (
@@ -69,7 +69,7 @@ export const InitialsForm: React.FC<IFormProps> = ({ last_game_score }): JSX.Ele
           <Button ref={btnRef} type="submit" onKeyDown={handleKeyDown}>
             Save
           </Button>
-          <Button as={RouterLink} to="/legacy">
+          <Button as={RouterLink} to="/quiz-legacy">
             Quit
           </Button>
         </Stack>

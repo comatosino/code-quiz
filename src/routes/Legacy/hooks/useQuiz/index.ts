@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useToast } from "@chakra-ui/react";
 
-import { useTimer } from "../useTimer";
-import { legacySlice, useAppDispatch } from "../../../../store";
+import { useAppDispatch } from "../../../../store";
+import { legacySlice } from "../../../../store/legacy";
 import { correct, incorrect } from "./feedback";
 
 import questions from "./questions.json";
+import { useTimer } from "../../../../hooks/useTimer";
 
 const { actions } = legacySlice;
 

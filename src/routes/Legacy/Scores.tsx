@@ -23,7 +23,7 @@ export const Scores: React.FC = (): JSX.Element => {
       <Heading>High Scores - Legacy</Heading>
 
       <HStack w="full" justifyContent="space-between">
-        <Button as={RouterLink} to="/legacy">
+        <Button as={RouterLink} to="/quiz-legacy">
           Back
         </Button>
         {high_scores.length > 0 && (

@@ -1,6 +1,6 @@
 import { useAppSelector, useAppDispatch } from "../../../store";
 
-import { legacySlice } from "../../../store";
+import { legacySlice } from "../../../store/legacy";
 
 const { actions } = legacySlice;
 

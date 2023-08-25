@@ -1,21 +1,21 @@
-import { Link as RouterLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Center, Stack, Button, Heading } from "@chakra-ui/react";
 
-export const Home: React.FC = (): JSX.Element => {
+export const New: React.FC = (): JSX.Element => {
   document.title = "Quizality | Legacy";
 
   return (
     <Center w="full" h="full">
       <Stack spacing={5}>
         <Heading>Legacy Mode</Heading>
-        <Button as={RouterLink} to="/legacy/quiz">
+        <Button as={Link} to="/quiz-legacy/play">
           Start Quiz
         </Button>
-        <Button as={RouterLink} to="/legacy/scores">
+        <Button as={Link} to="/quiz-legacy/scores">
           View High Scores
         </Button>
         <Stack pt={10}>
-          <Button as={RouterLink} to="/">
+          <Button as={Link} to="/">
             Back
           </Button>
         </Stack>

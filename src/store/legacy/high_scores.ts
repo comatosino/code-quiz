@@ -1,10 +1,6 @@
-const loadScores = () => {
+const loadScores = (): IScore[] => {
   const json = localStorage.getItem("quiz-classic-high-scores");
-  let scores = [];
-  if (json) {
-    scores = JSON.parse(json);
-  }
-  return scores as IScore[];
+  return json ? JSON.parse(json) : [];
 };
 
 export const high_scores = loadScores();

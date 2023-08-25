@@ -4,6 +4,7 @@ import { QuestionOutlineIcon } from "@chakra-ui/icons";
 
 export { _404 } from "./_404";
 export { Legacy } from "./Legacy";
+export { Quiz } from "./Quiz";
 
 export const Home: React.FC = (): JSX.Element => {
   document.title = "Quizality";
@@ -15,11 +16,12 @@ export const Home: React.FC = (): JSX.Element => {
         Quizality 🤔
       </Text>
 
-      <Stack spacing={5} p={5}>
+      <Stack spacing={5} py={10}>
         <Button as={Link} to="/quiz">
           New Quiz
         </Button>
-        <Button as={Link} to="/legacy">
+
+        <Button as={Link} to="/quiz-legacy">
           Legacy Quiz
         </Button>
       </Stack>
