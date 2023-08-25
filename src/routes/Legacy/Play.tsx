@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import { Stack, Text, Button, Center, Divider } from "@chakra-ui/react";
+import { Stack, Text, Button, Center, Divider, Box } from "@chakra-ui/react";
 import { useQuiz } from "./hooks";
 
 const START_TIME = 60;
@@ -10,6 +10,9 @@ export const Play: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     quiz.start(START_TIME);
+    return () => {
+      quiz.reset();
+    };
   }, []);
 
   const handleCheckAnswer = (choice: string, answer: string) => () => {
@@ -44,12 +47,12 @@ export const Play: React.FC = (): JSX.Element => {
 
         <Stack alignItems="start">
           {choices.map((choice, i) => (
-            <>
-              <Button key={i} onClick={handleCheckAnswer(choice, answer)} variant="unstyled">
+            <Box key={i} w="full">
+              <Button onClick={handleCheckAnswer(choice, answer)} variant="unstyled">
                 {choice}
               </Button>
               <Divider />
-            </>
+            </Box>
           ))}
         </Stack>
       </Stack>

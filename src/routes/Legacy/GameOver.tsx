@@ -1,7 +1,7 @@
+import { Navigate } from "react-router-dom";
 import { Text, Stack, Heading } from "@chakra-ui/react";
 import { InitialsForm } from "./components/InitialsForm";
 import { useGetLastScore } from "./hooks/useGetLastScore";
-import { Navigate } from "react-router-dom";
 
 export const GameOver: React.FC = (): JSX.Element => {
   const { last_score } = useGetLastScore();

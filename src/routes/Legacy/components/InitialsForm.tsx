@@ -34,6 +34,11 @@ export const InitialsForm: React.FC<IFormProps> = ({ last_game_score }): JSX.Ele
     navigate("/quiz-legacy/scores", { replace: true });
   };
 
+  const handleQuit = () => {
+    resetLastScore();
+    navigate("/quiz-legacy", { replace: true });
+  };
+
   const handleComplete = () => {
     btnRef?.current?.focus();
   };
@@ -69,9 +74,7 @@ export const InitialsForm: React.FC<IFormProps> = ({ last_game_score }): JSX.Ele
           <Button ref={btnRef} type="submit" onKeyDown={handleKeyDown}>
             Save
           </Button>
-          <Button as={RouterLink} to="/quiz-legacy">
-            Quit
-          </Button>
+          <Button onClick={handleQuit}>Quit</Button>
         </Stack>
       </Stack>
     </form>

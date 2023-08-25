@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useToast } from "@chakra-ui/react";
 
 import { useAppDispatch } from "../../../../store";
@@ -7,6 +7,7 @@ import { correct, incorrect } from "./feedback";
 
 import questions from "./questions.json";
 import { useTimer } from "../../../../hooks/useTimer";
+import { useGetLastScore } from "../useGetLastScore";
 
 const { actions } = legacySlice;
 
@@ -14,14 +15,20 @@ export const useQuiz = () => {
   const dispatch = useAppDispatch();
   const timer = useTimer();
   const toast = useToast();
-
+  const { last_score } = useGetLastScore();
   const [index, setIndex] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
 
-  const currQuestion = questions[index];
-
   const timeUp = gameStarted && timer.time <= 0;
   const isGameOver = timeUp || index >= questions.length;
+
+  useEffect(() => {
+    if (isGameOver) {
+      setLastGameScore(timer.time);
+    }
+  }, [isGameOver]);
+
+  const currQuestion = questions[index];
 
   const start = (t: number) => {
     timer.countdown(t);
@@ -48,17 +55,15 @@ export const useQuiz = () => {
   };
 
   const setLastGameScore = (score: number) => {
-    dispatch(actions.setLastGameScore(score));
+    if (!last_score) {
+      dispatch(actions.setLastGameScore(score));
+    }
   };
 
   const reset = () => {
     stop();
     setIndex(0);
   };
-
-  if (isGameOver) {
-    setLastGameScore(timer.time);
-  }
 
   return {
     start,
