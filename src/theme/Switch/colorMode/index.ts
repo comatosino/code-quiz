@@ -27,10 +27,7 @@ const colorMode = definePartsStyle({
     },
   },
   track: {
-    bgColor: "gray.200",
-    _dark: {
-      bgColor: "whiteAlpha.200",
-    },
+    bgColor: "blackAlpha.200",
   },
 });
 
