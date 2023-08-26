@@ -4,11 +4,13 @@ axios.defaults.baseURL = "https://opentdb.com/api.php";
 
 export const api = {
   questions: {
-    default: () => {
-      return axios.get<OtdbResponse>("/", { params: { amount: 10 } });
+    default: async () => {
+      const response = await axios.get<OtdbResponse>("/", { params: { amount: 10 } });
+      return response.data.results;
     },
-    custom: (params: Record<string, string>) => {
-      return axios.get<OtdbResponse>("/", { params });
+    custom: async (params: IQuizParams) => {
+      const response = await axios.get<OtdbResponse>("/", { params });
+      return response.data.results;
     },
   },
 };
