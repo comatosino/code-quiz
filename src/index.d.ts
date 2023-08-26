@@ -14,6 +14,38 @@ type CheckAnswerHandler = (
   answer: string,
 ) => React.MouseEventHandler<HTMLButtonElement>;
 
+/**
+ * Main Quiz
+ */
+
+interface IQuizState {
+  params: IQuizParams;
+  lastQuizScore: IQuizLastScore | null;
+}
+
+interface IQuizLastScore {
+  numCorrect: number;
+  numQuestions: number;
+  percentage: number;
+}
+
+interface IQuizParams {
+  amount: number;
+  category?: string;
+  difficulty?: "easy" | "meduium" | "hard";
+  type?: "multiple" | "boolean";
+}
+
+interface IQuizQuestion {
+  category: string;
+  difficulty: "easy" | "medium" | "hard";
+  question: string;
+  choices: string[];
+}
+
+/**
+ * Open Trivia DB types
+ */
 interface OtdbResponse {
   response_code: number;
   results: OtdbResults;
