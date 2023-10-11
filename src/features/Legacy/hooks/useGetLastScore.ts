@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from "../../../store";
-import { setLastGameScore } from "../slice";
+import { useAppDispatch, useAppSelector } from '../../../store';
+import { setLastGameScore } from '../slice';
 
 export const useGetLastScore = () => {
   const dispatch = useAppDispatch();

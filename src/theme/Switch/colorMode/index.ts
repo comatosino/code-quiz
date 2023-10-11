@@ -1,8 +1,8 @@
-import { switchAnatomy } from "@chakra-ui/anatomy";
-import { createMultiStyleConfigHelpers } from "@chakra-ui/react";
+import { switchAnatomy } from '@chakra-ui/anatomy';
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react';
 
-import sun from "./sun.svg";
-import moon from "./moon.svg";
+import sun from './sun.svg';
+import moon from './moon.svg';
 
 const { definePartsStyle, defineMultiStyleConfig } = createMultiStyleConfigHelpers(
   switchAnatomy.keys,
@@ -11,12 +11,12 @@ const { definePartsStyle, defineMultiStyleConfig } = createMultiStyleConfigHelpe
 // custom variant for the chakra Switch component
 const colorMode = definePartsStyle({
   thumb: {
-    bgColor: "goldenrod",
+    bgColor: 'goldenrod',
     maskImage: `url('${sun}')`,
     WebkitMaskImage: `url('${sun}')`,
-    maskPosition: "center",
-    maskRepeat: "no-repeat",
-    maskSize: "cover",
+    maskPosition: 'center',
+    maskRepeat: 'no-repeat',
+    maskSize: 'cover',
 
     // if checked, dark mode enabled
     _dark: { bgColor: `whiteAlpha.800` },
@@ -27,7 +27,7 @@ const colorMode = definePartsStyle({
     },
   },
   track: {
-    bgColor: "blackAlpha.200",
+    bgColor: 'blackAlpha.200',
   },
 });
 

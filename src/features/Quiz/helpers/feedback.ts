@@ -1,17 +1,17 @@
-import { UseToastOptions } from "@chakra-ui/react";
+import { UseToastOptions } from '@chakra-ui/react';
 
 export const correct: UseToastOptions = {
-  title: "Correct!",
-  status: "success",
-  position: "top",
+  title: 'Correct!',
+  status: 'success',
+  position: 'top',
   duration: 1000,
-  variant: "subtle",
+  variant: 'subtle',
 };
 
 export const incorrect: UseToastOptions = {
-  title: "Incorrect ",
-  status: "error",
-  position: "top",
+  title: 'Incorrect ',
+  status: 'error',
+  position: 'top',
   duration: 1000,
-  variant: "subtle",
+  variant: 'subtle',
 };

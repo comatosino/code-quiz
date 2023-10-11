@@ -1,9 +1,9 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
 
-import { New } from "./New";
-import { Create } from "./Create";
-import { Play } from "./Play";
-import { GameOver } from "./GameOver";
+import { New } from './New';
+import { Create } from './Create';
+import { Play } from './Play';
+import { GameOver } from './GameOver';
 
 type QuizMode = React.FC & {
   New: typeof New;

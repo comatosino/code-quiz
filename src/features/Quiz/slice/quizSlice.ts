@@ -1,5 +1,5 @@
-import type { PayloadAction } from "@reduxjs/toolkit";
-import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState: IQuizState = {
   params: { amount: 10 },
@@ -7,7 +7,7 @@ const initialState: IQuizState = {
 };
 
 export const quizSlice = createSlice({
-  name: "quiz",
+  name: 'quiz',
   initialState,
   reducers: {
     defaultQuiz: () => initialState,

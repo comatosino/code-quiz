@@ -32,13 +32,13 @@ interface IQuizLastScore {
 interface IQuizParams {
   amount: number;
   category?: string;
-  difficulty?: "easy" | "meduium" | "hard";
-  type?: "multiple" | "boolean";
+  difficulty?: 'easy' | 'meduium' | 'hard';
+  type?: 'multiple' | 'boolean';
 }
 
 interface IQuizQuestion {
   category: string;
-  difficulty: "easy" | "medium" | "hard";
+  difficulty: 'easy' | 'medium' | 'hard';
   question: string;
   choices: string[];
 }
@@ -55,8 +55,8 @@ type OtdbResults = OtdbQuestion[];
 
 interface OtdbQuestion {
   category: string;
-  type: "multiple" | "boolean";
-  difficulty: "easy" | "medium" | "hard";
+  type: 'multiple' | 'boolean';
+  difficulty: 'easy' | 'medium' | 'hard';
   question: string;
   correct_answer: string;
   incorrect_answers: string[];

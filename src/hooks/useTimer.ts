@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState } from 'react';
 
 export const useTimer = () => {
   const [time, setTime] = useState(0);
@@ -17,7 +17,7 @@ export const useTimer = () => {
 
   const countdown = (t: number) => {
     if (t < 0) {
-      throw new Error("invalid time");
+      throw new Error('invalid time');
     }
     if (interval.current) {
       stop();

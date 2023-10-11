@@ -1,7 +1,7 @@
-import { Box, Button, HStack, Input, useNumberInput } from "@chakra-ui/react";
+import { Box, Button, HStack, Input, useNumberInput } from '@chakra-ui/react';
 
-import { useAppDispatch, useAppSelector } from "../../../../store";
-import { setParams } from "../../slice";
+import { useAppDispatch, useAppSelector } from '../../../../store';
+import { setParams } from '../../slice';
 
 export const AmountInput = () => {
   const MIN = 1;
@@ -17,7 +17,7 @@ export const AmountInput = () => {
     max: MAX,
     step: STEP,
     precision: 0,
-    inputMode: "numeric",
+    inputMode: 'numeric',
   });
 
   const increment = () => {
@@ -44,20 +44,20 @@ export const AmountInput = () => {
 
   return (
     <Box>
-      <label htmlFor="quiz-length">Number of questions:</label>
+      <label htmlFor='quiz-length'>Number of questions:</label>
       <HStack>
         <Button {...getIncrementButtonProps()} onClick={increment} fontSize={24}>
           +
         </Button>
         <Input
           {...getInputProps()}
-          id="quiz-length"
+          id='quiz-length'
           value={params.amount}
           fontSize={24}
           w={50}
-          fontWeight="bold"
-          textAlign="center"
-          variant="unstyled"
+          fontWeight='bold'
+          textAlign='center'
+          variant='unstyled'
         />
         <Button {...getDecrementButtonProps()} onClick={decrement} fontSize={24}>
           -

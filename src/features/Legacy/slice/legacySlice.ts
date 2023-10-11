@@ -1,6 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
-import { high_scores } from "../helpers/high_scores";
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { high_scores } from '../helpers/high_scores';
 
 interface LegacyState {
   high_scores: IScore[];
@@ -13,7 +13,7 @@ const initialState: LegacyState = {
 };
 
 export const legacySlice = createSlice({
-  name: "legacy",
+  name: 'legacy',
   initialState,
   reducers: {
     setHighScores: (state, action: PayloadAction<IScore[]>) => {

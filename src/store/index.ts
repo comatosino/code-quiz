@@ -1,8 +1,8 @@
-import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
-import { legacySlice } from "../features/Legacy/slice";
-import { quizApi, quizSlice } from "../features/Quiz/slice";
+import { legacySlice } from '../features/Legacy/slice';
+import { quizApi, quizSlice } from '../features/Quiz/slice';
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

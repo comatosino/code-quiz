@@ -1,6 +1,6 @@
-import { useAppDispatch, useAppSelector } from "../../../store";
-import { setHighScores } from "../slice";
-import { CONFIG } from "../../../config";
+import { useAppDispatch, useAppSelector } from '../../../store';
+import { setHighScores } from '../slice';
+import { CONFIG } from '../../../config';
 
 export const useHighScores = () => {
   const dispatch = useAppDispatch();

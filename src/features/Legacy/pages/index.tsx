@@ -1,8 +1,8 @@
-import { Outlet } from "react-router-dom";
-import { New } from "./New";
-import { Play } from "./Play";
-import { GameOver } from "./GameOver";
-import { Scores } from "./Scores";
+import { Outlet } from 'react-router-dom';
+import { New } from './New';
+import { Play } from './Play';
+import { GameOver } from './GameOver';
+import { Scores } from './Scores';
 
 type LegacyMode = React.FC & {
   New: typeof New;

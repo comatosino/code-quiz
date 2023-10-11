@@ -1,1 +1,1 @@
-export { Legacy } from "./pages";
+export { Legacy } from './pages';
