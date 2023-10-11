@@ -13,4 +13,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Validate
-        run: bash scripts/validate_PR.sh '${{ github.event.pull_request.title }}'
+        run: bash scripts/validate_pr.sh '${{ github.event.pull_request.title }}'
