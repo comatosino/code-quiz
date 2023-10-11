@@ -5,36 +5,29 @@ const { definePartsStyle, defineMultiStyleConfig } = createMultiStyleConfigHelpe
   switchAnatomy.keys,
 );
 
-const SUN_URL = `${import.meta.env.BASE_URL}/sun.svg`;
-const MOON_URL = `${import.meta.env.BASE_URL}/moon.svg`;
+// use inline data URLs to avoid render hiccup while the other svg is fetched on toggle
 
-/**
- * custom variant for the Chakra Switch component that holds sun and moon svg elements
- *
- * Note: to avoid a 'hiccup' in rendering while the browser fetches the other svg, use the public dir
- * this way both svgs are cached immediately
- *
- * Note: when using a base url (like for github pages) need vite's globally injected
- * import.meta.env.BASE_URL var so that both dev and prod can use
- *
- * https://vitejs.dev/guide/assets.html#the-public-directory
- *
- * https://vitejs.dev/guide/build.html#public-base-path
- */
+const SUN_URL =
+  "data:image/svg+xml,%3Csvg viewBox='0 0 512 512' focusable='false' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z'%3E%3C/path%3E%3C/svg%3E";
+
+const MOON_URL =
+  "data:image/svg+xml,%3Csvg viewBox='0 0 512 512' focusable='false' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z'%3E%3C/path%3E%3C/svg%3E";
+
+// NOTE: quotes are explictly required around the data uri
 const colorMode = definePartsStyle({
   thumb: {
     bgColor: 'goldenrod',
-    maskImage: `url(${SUN_URL})`,
-    WebkitMaskImage: `url(${SUN_URL})`,
+    maskImage: `url("${SUN_URL}")`,
+    WebkitMaskImage: `url("${SUN_URL}")`,
     maskPosition: 'center',
     maskRepeat: 'no-repeat',
     maskSize: 'cover',
 
     // if checked, dark mode enabled
-    _dark: { bgColor: `whiteAlpha.800` },
     _checked: {
-      maskImage: `url(${MOON_URL})`,
-      WebkitMaskImage: `url(${MOON_URL})`,
+      bgColor: `whiteAlpha.800`,
+      maskImage: `url("${MOON_URL}")`,
+      WebkitMaskImage: `url("${MOON_URL}")`,
       transform: `translateX(var(--switch-thumb-x)) scaleX(${-1})`, // flip
     },
   },
