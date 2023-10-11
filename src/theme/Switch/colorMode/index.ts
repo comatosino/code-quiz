@@ -1,19 +1,21 @@
 import { switchAnatomy } from '@chakra-ui/anatomy';
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react';
 
-import sun from './sun.svg';
-import moon from './moon.svg';
-
 const { definePartsStyle, defineMultiStyleConfig } = createMultiStyleConfigHelpers(
   switchAnatomy.keys,
 );
 
-// custom variant for the chakra Switch component
+/**
+ * custom variant for the Chakra Switch component that holds sun and moon svg elements
+ * Note: to avoid a 'hiccup' in rendering while the browser fetches the other svg, use the public dir
+ * https://vitejs.dev/guide/assets.html#the-public-directory
+ * this way both svgs are cached immediately
+ */
 const colorMode = definePartsStyle({
   thumb: {
     bgColor: 'goldenrod',
-    maskImage: `url('${sun}')`,
-    WebkitMaskImage: `url('${sun}')`,
+    maskImage: 'url("/sun.svg")',
+    WebkitMaskImage: 'url("/sun.svg")',
     maskPosition: 'center',
     maskRepeat: 'no-repeat',
     maskSize: 'cover',
@@ -21,9 +23,9 @@ const colorMode = definePartsStyle({
     // if checked, dark mode enabled
     _dark: { bgColor: `whiteAlpha.800` },
     _checked: {
-      maskImage: `url('${moon}')`,
-      WebkitMaskImage: `url('${moon}')`,
-      transform: `translateX(var(--switch-thumb-x)) scaleX(${-1})`,
+      maskImage: 'url("/moon.svg")',
+      WebkitMaskImage: 'url("/moon.svg")',
+      transform: `translateX(var(--switch-thumb-x)) scaleX(${-1})`, // flip
     },
   },
   track: {
