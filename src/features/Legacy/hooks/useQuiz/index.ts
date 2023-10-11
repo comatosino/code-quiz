@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import { useToast } from "@chakra-ui/react";
+import { useEffect, useState } from 'react';
+import { useToast } from '@chakra-ui/react';
 
-import { useAppDispatch } from "../../../../store";
-import { useGetLastScore } from "../useGetLastScore";
-import { setLastGameScore } from "../../slice";
-import { useTimer } from "../../../../hooks";
-import { correct, incorrect } from "../../helpers/feedback";
+import { useAppDispatch } from '../../../../store';
+import { useGetLastScore } from '../useGetLastScore';
+import { setLastGameScore } from '../../slice';
+import { useTimer } from '../../../../hooks';
+import { correct, incorrect } from '../../helpers/feedback';
 
-import questions from "./questions.json";
+import questions from './questions.json';
 
 export const useQuiz = () => {
   const dispatch = useAppDispatch();

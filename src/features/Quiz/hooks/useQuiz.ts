@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
-import { useToast } from "@chakra-ui/react";
+import { useEffect, useRef, useState } from 'react';
+import { useToast } from '@chakra-ui/react';
 
-import { useAppDispatch, useAppSelector } from "../../../store";
-import { useGetQuestionsQuery, setLastScore } from "../slice";
-import { correct, incorrect } from "../helpers/feedback";
-import { decodeHtml, shuffle } from "../../../utils";
+import { useAppDispatch, useAppSelector } from '../../../store';
+import { useGetQuestionsQuery, setLastScore } from '../slice';
+import { correct, incorrect } from '../helpers/feedback';
+import { decodeHtml, shuffle } from '../../../utils';
 
 export const useQuiz = () => {
   const dispatch = useAppDispatch();

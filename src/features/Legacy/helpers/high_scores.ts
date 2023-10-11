@@ -1,4 +1,4 @@
-import { CONFIG } from "../../../config";
+import { CONFIG } from '../../../config';
 
 const loadScores = (): IScore[] => {
   const json = localStorage.getItem(CONFIG.LOCAL_STORAGE_KEY_LEGACY);

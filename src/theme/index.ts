@@ -1,7 +1,7 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme } from '@chakra-ui/react';
 
-import { config } from "./config";
-import { colorModeSwitch } from "./Switch/colorMode";
+import { config } from './config';
+import { colorModeSwitch } from './Switch/colorMode';
 
 export const theme = extendTheme({
   config,

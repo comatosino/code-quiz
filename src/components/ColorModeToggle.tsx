@@ -1,4 +1,4 @@
-import { useColorMode, Switch, SwitchProps } from "@chakra-ui/react";
+import { useColorMode, Switch, SwitchProps } from '@chakra-ui/react';
 
 // by default, Chakra disables transitions while color mode changes so that's why the switch was 'snapping' instead of 'sliding'
 // https://github.com/chakra-ui/chakra-ui/pull/5946
@@ -7,16 +7,16 @@ import { useColorMode, Switch, SwitchProps } from "@chakra-ui/react";
 
 export const ColorModeToggle: React.FC<SwitchProps> = (props): JSX.Element => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const darkModeOn = colorMode === "dark";
+  const darkModeOn = colorMode === 'dark';
 
-  const handleToggle: React.ChangeEventHandler<HTMLInputElement> = (_e) => {
+  const handleToggle: React.ChangeEventHandler<HTMLInputElement> = () => {
     toggleColorMode();
 
     // temp override chakra's styles during color change to enable transform transitions for the thumb element
     // this enables the switch to slide smoothly
-    const styleEl = document.createElement("style");
+    const styleEl = document.createElement('style');
     const css = document.createTextNode(
-      ".chakra-switch__thumb { transition: transform var(--chakra-transition-duration-normal) !important; }",
+      '.chakra-switch__thumb { transition: transform var(--chakra-transition-duration-normal) !important; }',
     );
     styleEl.appendChild(css);
     document.head.appendChild(styleEl);
@@ -27,5 +27,5 @@ export const ColorModeToggle: React.FC<SwitchProps> = (props): JSX.Element => {
     }, 200);
   };
 
-  return <Switch {...props} variant="colorMode" onChange={handleToggle} isChecked={darkModeOn} />;
+  return <Switch {...props} variant='colorMode' onChange={handleToggle} isChecked={darkModeOn} />;
 };
