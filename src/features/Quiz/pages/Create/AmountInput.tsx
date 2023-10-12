@@ -1,4 +1,4 @@
-import { Box, Button, HStack, Input, useNumberInput } from '@chakra-ui/react';
+import { Box, Button, HStack, Text, useNumberInput } from '@chakra-ui/react';
 
 import { useAppDispatch, useAppSelector } from '../../../../store';
 import { setParams } from '../../slice';
@@ -11,7 +11,7 @@ export const AmountInput: React.FC = (): JSX.Element => {
   const params = useAppSelector((state) => state.quiz.params);
   const dispatch = useAppDispatch();
 
-  const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } = useNumberInput({
+  const { getIncrementButtonProps, getDecrementButtonProps } = useNumberInput({
     value: params.amount,
     min: MIN,
     max: MAX,
@@ -49,16 +49,11 @@ export const AmountInput: React.FC = (): JSX.Element => {
         <Button {...getIncrementButtonProps()} onClick={increment} fontSize={24}>
           +
         </Button>
-        <Input
-          {...getInputProps()}
-          id='quiz-length'
-          value={params.amount}
-          fontSize={24}
-          w={50}
-          fontWeight='bold'
-          textAlign='center'
-          variant='unstyled'
-        />
+
+        <Text id='quiz-length' fontSize={24} w={50} fontWeight='bold' textAlign='center'>
+          {params.amount}
+        </Text>
+
         <Button {...getDecrementButtonProps()} onClick={decrement} fontSize={24}>
           -
         </Button>
