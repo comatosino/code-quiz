@@ -7,7 +7,7 @@ const MIN = 1;
 const MAX = 25;
 const STEP = 1;
 
-export const AmountInput = () => {
+export const AmountInput: React.FC = (): JSX.Element => {
   const params = useAppSelector((state) => state.quiz.params);
   const dispatch = useAppDispatch();
 

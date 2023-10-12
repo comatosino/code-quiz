@@ -5,7 +5,7 @@ import { Button, Center, Heading, Stack, Text } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from '../../../store';
 import { setLastScore } from '../slice';
 
-export const GameOver: React.FC = () => {
+export const GameOver: React.FC = (): JSX.Element => {
   const score = useAppSelector((state) => state.quiz.lastQuizScore);
   const dispatch = useAppDispatch();
 

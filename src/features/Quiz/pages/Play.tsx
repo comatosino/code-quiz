@@ -1,10 +1,10 @@
 import { Link, Navigate } from 'react-router-dom';
-import { Box, Center, Button, Stack, Divider, Text, Flex } from '@chakra-ui/react';
+import { Box, Center, Button, Stack, Divider, Text } from '@chakra-ui/react';
 
 import { useQuiz } from '../hooks';
 import { decodeHtml } from '../../../utils';
 
-export const Play: React.FC = () => {
+export const Play: React.FC = (): JSX.Element => {
   const { error, isFetching, inProgress, startQuiz, currQuestion, checkAnswer, gameover, noQs } =
     useQuiz();
 
