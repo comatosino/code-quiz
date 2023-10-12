@@ -3,7 +3,7 @@ import { Box, RadioGroup, HStack, Radio } from '@chakra-ui/react';
 import { useAppSelector, useAppDispatch } from '../../../../store';
 import { setParams } from '../../slice';
 
-export const TypeSelect = () => {
+export const TypeSelect: React.FC = (): JSX.Element => {
   const params = useAppSelector((state) => state.quiz.params);
   const dispatch = useAppDispatch();
 

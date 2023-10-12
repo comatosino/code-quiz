@@ -8,7 +8,7 @@ import { _404 } from './features/_404';
 
 import { CONFIG } from './config';
 
-export const AppRouter = () => {
+export const AppRouter: React.FC = (): JSX.Element => {
   return (
     <BrowserRouter basename='/quizality'>
       <Routes>

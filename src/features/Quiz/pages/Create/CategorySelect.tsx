@@ -2,7 +2,7 @@ import { Box, Select } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from '../../../../store';
 import { setParams } from '../../slice';
 
-export const CategorySelect = () => {
+export const CategorySelect: React.FC = (): JSX.Element => {
   const params = useAppSelector((state) => state.quiz.params);
   const dispatch = useAppDispatch();
 

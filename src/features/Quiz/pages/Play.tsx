@@ -4,19 +4,36 @@ import { Box, Center, Button, Stack, Divider, Text } from '@chakra-ui/react';
 import { useQuiz } from '../hooks';
 import { decodeHtml } from '../../../utils';
 
-export const Play: React.FC = () => {
-  const { error, isFetching, inProgress, startQuiz, currQuestion, checkAnswer, gameover } =
+export const Play: React.FC = (): JSX.Element => {
+  const { error, isFetching, inProgress, startQuiz, currQuestion, checkAnswer, gameover, noQs } =
     useQuiz();
 
   document.title = 'Quizality | Quiz';
 
   if (error) {
     return (
-      <Center w='full'>
-        <Text>error loading quiz</Text>
-        <Button as={Link} to='/quiz'>
-          go back
-        </Button>
+      <Center>
+        <Stack alignItems='center'>
+          <Text fontSize={48}>😵‍💫</Text>
+          <Text pb={5}>error creating quiz</Text>
+          <Button as={Link} to='/quiz'>
+            go back
+          </Button>
+        </Stack>
+      </Center>
+    );
+  }
+
+  if (noQs) {
+    return (
+      <Center>
+        <Stack alignItems='center'>
+          <Text fontSize={48}>😥</Text>
+          <Text pb={5}>couldn't create a quiz with those parameters</Text>
+          <Button as={Link} to='/quiz/config'>
+            try again?
+          </Button>
+        </Stack>
       </Center>
     );
   }

@@ -4,7 +4,7 @@ import { Center, Stack, Heading, Button } from '@chakra-ui/react';
 import { useAppDispatch } from '../../../store';
 import { defaultQuiz } from '../slice';
 
-export const New: React.FC = () => {
+export const New: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const nagivate = useNavigate();
 
