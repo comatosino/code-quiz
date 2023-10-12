@@ -3,11 +3,11 @@ import { Box, Button, HStack, Input, useNumberInput } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from '../../../../store';
 import { setParams } from '../../slice';
 
-export const AmountInput = () => {
-  const MIN = 1;
-  const MAX = 25;
-  const STEP = 1;
+const MIN = 1;
+const MAX = 25;
+const STEP = 1;
 
+export const AmountInput = () => {
   const params = useAppSelector((state) => state.quiz.params);
   const dispatch = useAppDispatch();
 

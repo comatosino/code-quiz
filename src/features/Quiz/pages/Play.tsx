@@ -43,12 +43,14 @@ export const Play: React.FC = () => {
   return (
     <Center w='full'>
       <Stack id='game' w={640} margin='auto'>
-        <Text as='h2'>{currQuestion?.question}</Text>
-        <Divider />
-        <Stack>
+        <Text as='h2' pb={10} fontSize={20} fontWeight={700}>
+          {currQuestion?.question}
+        </Text>
+
+        <Stack spacing={5}>
           {currQuestion?.choices.map((choice, i) => (
             <Box key={i}>
-              <Button onClick={() => checkAnswer(choice)} variant='unstyled'>
+              <Button textAlign='left' onClick={() => checkAnswer(choice)} variant='unstyled'>
                 {decodeHtml(choice)}
               </Button>
               <Divider />
