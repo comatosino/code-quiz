@@ -1,7 +1,12 @@
-[![GitHub deployments](https://img.shields.io/github/deployments/r0b4dams/quizality/github-pages?logo=github&label=deploy)](https://r0b4dams.github.io/quizality/)
+[![GitHub Pages](https://img.shields.io/github/deployments/r0b4dams/quizality/github-pages?logo=github&label=prod)](https://r0b4dams.github.io/quizality/)
+[![Prettier](https://img.shields.io/badge/style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-# quizality
+<div align="center">
+  <image align="center" src="public/logo.svg">
+</div>
+<h1 align="center">Quizality</h1>
+<h3 align="center">Challenge yourself to trivia!</h3>
 
-A web app that asks trivia questions!
+## Description
 
-
+A trivia game where you can create your own quizzes.
