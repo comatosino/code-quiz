@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { Stack, Container, Flex } from '@chakra-ui/react';
+import { Stack, Container, Center } from '@chakra-ui/react';
 import { Footer, Header } from '../components';
 
 interface LayoutProps {
@@ -8,20 +8,20 @@ interface LayoutProps {
 
 export const DefaultLayout: React.FC<LayoutProps> = (): JSX.Element => {
   return (
-    <Container maxW='container.xl'>
-      <Stack h='100vh' spacing={5}>
-        <Header />
-        <Main />
-        <Footer />
-      </Stack>
-    </Container>
+    <Stack h='100vh'>
+      <Header />
+      <Main />
+      <Footer />
+    </Stack>
   );
 };
 
 const Main: React.FC<LayoutProps> = (): JSX.Element => {
   return (
-    <Flex flexGrow={1} m={5} borderRadius='xl'>
-      <Outlet />
-    </Flex>
+    <Center flexGrow={1} m={5} borderRadius='xl'>
+      <Container maxW='container.xl'>
+        <Outlet />
+      </Container>
+    </Center>
   );
 };
