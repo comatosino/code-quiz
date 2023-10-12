@@ -66,5 +66,7 @@ export const useQuiz = () => {
     setIndex((prev) => prev + 1);
   };
 
-  return { error, isFetching, inProgress, startQuiz, currQuestion, checkAnswer, gameover };
+  const noQs = data?.results.length === 0;
+
+  return { error, isFetching, inProgress, startQuiz, currQuestion, checkAnswer, gameover, noQs };
 };
