@@ -6,6 +6,8 @@ import { Quiz } from './features/Quiz';
 import { Legacy } from './features/Legacy';
 import { _404 } from './features/_404';
 
+import { CONFIG } from './config';
+
 export const AppRouter = () => {
   return (
     <BrowserRouter basename='/quizality'>
@@ -20,12 +22,14 @@ export const AppRouter = () => {
             <Route path='gameover' element={<Quiz.GameOver />} />
           </Route>
 
-          <Route path='legacy' element={<Legacy />}>
-            <Route index element={<Legacy.New />} />
-            <Route path='play' element={<Legacy.Play />} />
-            <Route path='gameover' element={<Legacy.GameOver />} />
-            <Route path='scores' element={<Legacy.Scores />} />
-          </Route>
+          {CONFIG.ENABLE_LEGACY && (
+            <Route path='legacy' element={<Legacy />}>
+              <Route index element={<Legacy.New />} />
+              <Route path='play' element={<Legacy.Play />} />
+              <Route path='gameover' element={<Legacy.GameOver />} />
+              <Route path='scores' element={<Legacy.Scores />} />
+            </Route>
+          )}
 
           <Route path='*' element={<_404 />} />
         </Route>
