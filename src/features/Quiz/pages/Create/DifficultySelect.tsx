@@ -19,7 +19,7 @@ export const DifficultySelect = () => {
 
   return (
     <Box>
-      <label>Quesion difficulty:</label>
+      <label>Question difficulty:</label>
       <RadioGroup onChange={handleChange} value={params.difficulty || 'any'}>
         <HStack spacing={5}>
           <Radio value='easy'>easy</Radio>

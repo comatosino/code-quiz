@@ -19,7 +19,7 @@ export const TypeSelect = () => {
 
   return (
     <Box>
-      <label>Quesion type:</label>
+      <label>Question type:</label>
       <RadioGroup onChange={handleChange} value={params.type || 'any'}>
         <HStack spacing={5}>
           <Radio value='multiple'>multiple-choice</Radio>
