@@ -19,7 +19,7 @@ export const CategorySelect = () => {
 
   return (
     <Box>
-      <label htmlFor='category-select'></label>
+      <label htmlFor='category-select'>Category:</label>
       <Select value={params.category || 'any'} id='category-select' onChange={handleChange}>
         <option value='any'>Any category</option>
         <option value='9'>General Knowledge</option>
