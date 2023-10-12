@@ -5,7 +5,7 @@ export { _404 } from './_404';
 export { Legacy } from './Legacy/pages';
 export { Quiz } from './Quiz/pages';
 
-import { Intro } from '../components/Intro';
+import { Intro } from '../components';
 import { CONFIG } from '../config';
 
 export const Home: React.FC = (): JSX.Element => {
