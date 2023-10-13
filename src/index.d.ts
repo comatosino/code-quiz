@@ -1,7 +1,7 @@
 interface IQuestion {
-  prompt: string;
+  text: string;
+  correct: string;
   choices: string[];
-  answer: string;
 }
 
 interface IScore {

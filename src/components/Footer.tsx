@@ -5,7 +5,7 @@ const year = new Date().getFullYear();
 export const Footer: React.FC = (): JSX.Element => {
   return (
     <footer>
-      <Center w='full' h='10vh' bgColor='brand.500'>
+      <Center w='full' h='10vh' borderTopWidth={5} borderColor='brand.500'>
         <Container maxW='container.xl' display='flex' justifyContent='center'>
           <a href='https://www.robertadams.codes/' target='_blank'>
             <Text>Robert Adams © {year}</Text>
