@@ -12,7 +12,7 @@ export const Create: React.FC = () => {
   return (
     <Center w='full'>
       <Stack spacing={5}>
-        <Heading>Custom Quiz</Heading>
+        <Heading>Custom Quiz 🤓</Heading>
         <AmountInput />
         <CategorySelect />
         <DifficultySelect />
