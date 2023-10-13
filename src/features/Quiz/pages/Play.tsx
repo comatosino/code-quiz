@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { Box, Center, Button, Stack, Divider, Text } from '@chakra-ui/react';
+import { Center, Button, Stack, Divider, Text } from '@chakra-ui/react';
 
 import { useQuiz } from '../hooks';
 import { useTimer } from '../../../hooks';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export const Play: React.FC = (): JSX.Element => {
   const {
@@ -23,7 +24,7 @@ export const Play: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     if (inProgress) {
-      timer.countdown(10);
+      timer.countdown(15);
     }
   }, [inProgress, index]);
 
@@ -97,14 +98,22 @@ export const Play: React.FC = (): JSX.Element => {
         </Text>
 
         <Stack spacing={5}>
-          {question.choices.map((choice, i) => (
-            <Box key={i}>
-              <Button textAlign='left' onClick={() => checkAnswer(choice)} variant='unstyled'>
-                {choice}
-              </Button>
-              <Divider />
-            </Box>
-          ))}
+          <AnimatePresence key={question.text}>
+            {question.choices.map((choice, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.25 }}
+                exit={{ opacity: 0, x: -100 }}
+              >
+                <Button textAlign='left' onClick={() => checkAnswer(choice)} variant='unstyled'>
+                  {choice}
+                </Button>
+                <Divider />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </Stack>
       </Stack>
     </Center>
