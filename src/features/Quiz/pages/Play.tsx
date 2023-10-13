@@ -1,12 +1,37 @@
+import { useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { Box, Center, Button, Stack, Divider, Text } from '@chakra-ui/react';
 
 import { useQuiz } from '../hooks';
-import { decodeHtml } from '../../../utils';
+import { useTimer } from '../../../hooks';
 
 export const Play: React.FC = (): JSX.Element => {
-  const { error, isFetching, inProgress, startQuiz, currQuestion, checkAnswer, gameover, noQs } =
-    useQuiz();
+  const {
+    error,
+    isFetching,
+    inProgress,
+    gameover,
+    index,
+    question,
+    no_data,
+    startQuiz,
+    nextQuestion,
+    checkAnswer,
+  } = useQuiz();
+
+  const timer = useTimer();
+
+  useEffect(() => {
+    if (inProgress) {
+      timer.countdown(10);
+    }
+  }, [inProgress, index]);
+
+  useEffect(() => {
+    if (inProgress && timer.time === 0) {
+      nextQuestion();
+    }
+  }, [timer.time]);
 
   document.title = 'Quizality | Quiz';
 
@@ -15,7 +40,7 @@ export const Play: React.FC = (): JSX.Element => {
       <Center>
         <Stack alignItems='center'>
           <Text fontSize={48}>😵‍💫</Text>
-          <Text pb={5}>error creating quiz</Text>
+          <Text px={5}>something went wrong</Text>
           <Button as={Link} to='/quiz'>
             go back
           </Button>
@@ -24,7 +49,7 @@ export const Play: React.FC = (): JSX.Element => {
     );
   }
 
-  if (noQs) {
+  if (inProgress && no_data) {
     return (
       <Center>
         <Stack alignItems='center'>
@@ -60,15 +85,22 @@ export const Play: React.FC = (): JSX.Element => {
   return (
     <Center w='full'>
       <Stack id='game' w={640} margin='auto'>
+        <Text w={130} as='h2' alignSelf='end' display='flex' justifyContent='space-between'>
+          time remaining:
+          <Text as='span' fontWeight={700}>
+            {timer.time}
+          </Text>
+        </Text>
+
         <Text as='h2' pb={10} fontSize={20} fontWeight={700}>
-          {currQuestion?.question}
+          {question.text}
         </Text>
 
         <Stack spacing={5}>
-          {currQuestion?.choices.map((choice, i) => (
+          {question.choices.map((choice, i) => (
             <Box key={i}>
               <Button textAlign='left' onClick={() => checkAnswer(choice)} variant='unstyled'>
-                {decodeHtml(choice)}
+                {choice}
               </Button>
               <Divider />
             </Box>
