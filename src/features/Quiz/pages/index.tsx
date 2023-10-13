@@ -1,9 +1,10 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 import { New } from './New';
 import { Create } from './Create';
 import { Play } from './Play';
 import { GameOver } from './GameOver';
+import { motion } from 'framer-motion';
 
 type QuizMode = React.FC & {
   New: typeof New;
@@ -13,7 +14,12 @@ type QuizMode = React.FC & {
 };
 
 export const Quiz: QuizMode = () => {
-  return <Outlet />;
+  const location = useLocation();
+  return (
+    <motion.div key={location.pathname} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <Outlet />
+    </motion.div>
+  );
 };
 
 Quiz.New = New;
