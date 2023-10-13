@@ -3,7 +3,7 @@ import { ColorModeToggle } from './ColorModeToggle';
 
 export const Header: React.FC = (): JSX.Element => {
   return (
-    <Box as='header' bgColor='brand.500'>
+    <Box as='header' borderBottomWidth={5} borderColor='brand.500'>
       <Container maxW='container.xl'>
         <Flex w='full' h='10vh' px={5} alignItems='center' justifyContent='space-between'>
           <HStack>
