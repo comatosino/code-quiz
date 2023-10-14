@@ -93,7 +93,7 @@ export const Play: React.FC = (): JSX.Element => {
           </Text>
         </Text>
 
-        <Text as='h2' pb={10} fontSize={20} fontWeight={700}>
+        <Text as='h2' pb={10} fontSize={isLargerThan320 ? 20 : 14} fontWeight={700}>
           {question.text}
         </Text>
 
@@ -102,10 +102,9 @@ export const Play: React.FC = (): JSX.Element => {
             {question.choices.map((choice, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: -15 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.25 }}
-                exit={{ opacity: 0, x: -100 }}
               >
                 <Button textAlign='left' onClick={() => checkAnswer(choice)} variant='unstyled'>
                   {choice}
