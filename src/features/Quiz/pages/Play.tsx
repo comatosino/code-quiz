@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { Center, Button, Stack, Divider, Text } from '@chakra-ui/react';
+import { Center, Button, Stack, Divider, Text, useMediaQuery } from '@chakra-ui/react';
 
 import { useQuiz } from '../hooks';
 import { useTimer } from '../../../hooks';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export const Play: React.FC = (): JSX.Element => {
+  const [isLargerThan400] = useMediaQuery('(min-width: 400px)');
+
   const {
     error,
     isFetching,
@@ -85,15 +87,17 @@ export const Play: React.FC = (): JSX.Element => {
 
   return (
     <Center w='full'>
-      <Stack id='game' w={640} margin='auto'>
-        <Text w={130} as='h2' alignSelf='end' display='flex' justifyContent='space-between'>
-          time remaining:
-          <Text as='span' fontWeight={700}>
+      <Stack id='game' w={isLargerThan400 ? 640 : 320} margin='auto'>
+        <Text as='h2' alignSelf='end' display='flex' justifyContent='space-between'>
+          <Text as='span' pr='2px'>
+            time remaining:
+          </Text>
+          <Text as='span' width={5} fontWeight={700}>
             {timer.time}
           </Text>
         </Text>
 
-        <Text as='h2' pb={10} fontSize={16} fontWeight={700}>
+        <Text as='h2' pb={10} fontSize={isLargerThan400 ? 18 : 14} fontWeight={700}>
           {question.text}
         </Text>
 
@@ -106,8 +110,15 @@ export const Play: React.FC = (): JSX.Element => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.25 }}
               >
-                <Button textAlign='left' onClick={() => checkAnswer(choice)} variant='unstyled'>
-                  {choice}
+                <Button variant='unstyled' onClick={() => checkAnswer(choice)}>
+                  <Text
+                    textAlign='left'
+                    pointerEvents='auto'
+                    fontSize={isLargerThan400 ? 16 : 12}
+                    fontWeight={600}
+                  >
+                    {choice}
+                  </Text>
                 </Button>
                 <Divider />
               </motion.div>
