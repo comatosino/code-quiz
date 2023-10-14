@@ -93,7 +93,7 @@ export const Play: React.FC = (): JSX.Element => {
           </Text>
         </Text>
 
-        <Text as='h2' pb={10} fontSize={isLargerThan320 ? 20 : 14} fontWeight={700}>
+        <Text as='h2' pb={10} fontSize={16} fontWeight={700}>
           {question.text}
         </Text>
 
