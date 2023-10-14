@@ -1,7 +1,7 @@
 {
   "name": "quizality",
   "author": "Robert Adams",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "An app that creates trivia quizzes",
   "license": "MIT",
   "repository": {
