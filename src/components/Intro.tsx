@@ -36,7 +36,7 @@ export const Intro: React.FC = (): JSX.Element => {
 
   return (
     <Stack ref={bubbles} w={175} alignItems='center' spacing={3}>
-      <Center className='bubble' w={48} h={48} borderRadius='full' bgColor='#ddd'>
+      <Center className='bubble' w={32} h={32} borderRadius='full' bgColor='#ddd'>
         <Image
           onMouseOver={triggerBoop}
           ref={boopEl}
