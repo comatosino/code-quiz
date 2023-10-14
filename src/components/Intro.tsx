@@ -39,6 +39,7 @@ export const Intro: React.FC = (): JSX.Element => {
       <Center className='bubble' w={32} h={32} borderRadius='full' bgColor='#ddd'>
         <Image
           onMouseOver={triggerBoop}
+          onTouchStart={triggerBoop}
           ref={boopEl}
           mr={2}
           w='75%'
