@@ -3,7 +3,7 @@ import { useToast } from '@chakra-ui/react';
 
 import { useAppDispatch, useAppSelector } from '../../../store';
 import { useGetQuestionsQuery, setLastScore } from '../slice';
-import { correct, incorrect } from '../helpers/feedback';
+
 import { decodeHtml, shuffle } from '../../../utils';
 
 export const useQuiz = () => {
@@ -59,9 +59,6 @@ export const useQuiz = () => {
   const checkAnswer = (choice: string | null) => {
     if (choice === questions[index].correct) {
       score.current++;
-      toast(correct);
-    } else {
-      toast(incorrect);
     }
     nextQuestion();
   };
