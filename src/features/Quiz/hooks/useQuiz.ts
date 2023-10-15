@@ -3,8 +3,8 @@ import { useToast } from '@chakra-ui/react';
 
 import { useAppDispatch, useAppSelector } from '../../../store';
 import { useGetQuestionsQuery, setLastScore } from '../slice';
-
 import { decodeHtml, shuffle } from '../../../utils';
+import { FEEDBACK, getToastConfig } from '../helpers';
 
 export const useQuiz = () => {
   const quiz = useAppSelector((state) => state.quiz);
@@ -15,7 +15,10 @@ export const useQuiz = () => {
   const [questions, set] = useState<IQuestion[]>([]);
   const [inProgress, setInProgress] = useState(false);
   const [gameover, setGameover] = useState(false);
-  const toast = useToast();
+
+  const toast = useToast({
+    containerStyle: { marginBottom: '12vh' },
+  });
 
   const { data, error, isFetching } = useGetQuestionsQuery(quiz.params, {
     refetchOnMountOrArgChange: true,
@@ -59,8 +62,17 @@ export const useQuiz = () => {
   const checkAnswer = (choice: string | null) => {
     if (choice === questions[index].correct) {
       score.current++;
+      feedback(FEEDBACK.CORRECT);
+    } else {
+      feedback(FEEDBACK.INCORRECT);
     }
     nextQuestion();
+  };
+
+  const feedback = (type: FEEDBACK) => {
+    toast.closeAll();
+    const toastConfig = getToastConfig(type);
+    toast(toastConfig);
   };
 
   return {
