@@ -16,7 +16,8 @@
     "preview": "vite preview",
     "release": "bash scripts/release.sh",
     "lint": "eslint src",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "rm_tags": "bash scripts/rm_tags.sh"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.18",
