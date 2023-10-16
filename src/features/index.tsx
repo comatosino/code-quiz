@@ -17,7 +17,7 @@ export const Home: React.FC = (): JSX.Element => {
     animate(scope.current, { opacity: [0, 1] });
   }, []);
 
-  document.title = 'Quizality';
+  document.title = 'Quizicality';
 
   return (
     <Center ref={scope} flexGrow={1} flexDir='column'>
