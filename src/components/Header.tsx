@@ -40,7 +40,7 @@ export const Header: React.FC = (): JSX.Element => {
 
             <Box ref={text}>
               <Text className='header-text' as='h1' fontSize='2xl'>
-                Quizality
+                Quizicality
               </Text>
 
               <Text className='header-text' ml={10} fontSize='md'>

@@ -1,6 +1,6 @@
 <div align="center">
   <image width='100px' src="public/logo.svg">
-  <h1>Quizality</h1>
+  <h1>Quizicality</h1>
 </div>
 
 [![MIT](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/MIT)
@@ -14,9 +14,9 @@ A web application where you can create your own quizzes. Challenge yourself to t
 
 ## Usage
 
-Click [here](https://r0b4dams.github.io/quizality/) to check out the app!
+Click [here](https://r0b4dams.github.io/quizicality/) to check out the app!
 
-[![screenshot](assets/screenshot.png)](https://r0b4dams.github.io/quizality/)
+[![screenshot](assets/screenshot.png)](https://r0b4dams.github.io/quizicality/)
 
 ## Installation
 
