@@ -10,7 +10,7 @@ import { CONFIG } from './config';
 
 export const AppRouter: React.FC = (): JSX.Element => {
   return (
-    <BrowserRouter basename='/quizality'>
+    <BrowserRouter basename={CONFIG.BASE_URL}>
       <Routes>
         <Route path='/' element={<DefaultLayout />}>
           <Route index element={<Home />} />
