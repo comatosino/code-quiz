@@ -1,6 +1,6 @@
 {
-  "name": "Quizality",
-  "short_name": "Quizality",
+  "name": "Quizicality",
+  "short_name": "Quizicality",
   "description": "Challenge yourself to trivia",
   "icons": [
     { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
