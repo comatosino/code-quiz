@@ -16,7 +16,9 @@ A web application where you can create your own quizzes. Challenge yourself to t
 
 Click [here](https://r0b4dams.github.io/quizicality/) to check out the app!
 
-[![screenshot](assets/screenshot.png)](https://r0b4dams.github.io/quizicality/)
+<video width="640" loop muted autoplay>
+  <source src="assets/demo.mp4" type="video/mp4">
+</video>
 
 ## Installation
 
