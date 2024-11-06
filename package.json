@@ -20,6 +20,7 @@
     "rm_tags": "bash scripts/rm_tags.sh"
   },
   "dependencies": {
+    "@chakra-ui/anatomy": "^2.3.4",
     "@chakra-ui/icons": "^2.0.18",
     "@chakra-ui/react": "^2.5.1",
     "@emotion/react": "^11.10.6",
