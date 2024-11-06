@@ -21,7 +21,7 @@ export const useQuiz = () => {
   });
 
   const { data, error, isFetching } = useGetQuestionsQuery(quiz.params, {
-    refetchOnMountOrArgChange: true,
+    refetchOnMountOrArgChange: 10,
   });
 
   useEffect(() => {
