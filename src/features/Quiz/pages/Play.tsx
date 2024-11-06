@@ -38,7 +38,8 @@ export const Play: React.FC = (): JSX.Element => {
 
   document.title = 'Quizality | Quiz';
 
-  if (error) {
+  if (error && no_data) {
+    console.log(error);
     return (
       <Center>
         <Stack alignItems='center'>
