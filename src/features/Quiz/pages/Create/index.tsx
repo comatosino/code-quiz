@@ -18,7 +18,7 @@ export const Create: React.FC = () => {
         <DifficultySelect />
         <TypeSelect />
         <Button as={Link} to='/quiz/play'>
-          Play quiz!
+          Accept
         </Button>
         <Button as={Link} to='/quiz'>
           Go back
