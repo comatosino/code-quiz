@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { Button, Center, Heading, Stack, Text } from '@chakra-ui/react';
 
@@ -9,14 +9,10 @@ export const GameOver: React.FC = (): JSX.Element => {
   const score = useAppSelector((state) => state.quiz.lastQuizScore);
   const dispatch = useAppDispatch();
 
-  // reset score to null on dismount
-  const ref = useRef(false);
-  useEffect(() => () => {
-    if (ref.current) {
+  useEffect(() => {
+    return () => {
       dispatch(setLastScore(null));
-    } else {
-      ref.current = true;
-    }
+    };
   });
 
   if (!score) {
